@@ -8,15 +8,42 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int Direction = 0;
+    public const int Moving = 1;
+    public const int Speed = 2;
+    public const int TurnedAlongDirection = 3;
+    public const int Hero = 4;
+    public const int AxisInput = 5;
+    public const int Input = 6;
+    public const int Id = 7;
+    public const int Transform = 8;
+    public const int WorldPosition = 9;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
-
+        "Direction",
+        "Moving",
+        "Speed",
+        "TurnedAlongDirection",
+        "Hero",
+        "AxisInput",
+        "Input",
+        "Id",
+        "Transform",
+        "WorldPosition"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(Assets.Code.Gameplay.Common.Movement.Direction),
+        typeof(Assets.Code.Gameplay.Common.Movement.Moving),
+        typeof(Assets.Code.Gameplay.Common.Movement.Speed),
+        typeof(Assets.Code.Gameplay.Common.Movement.TurnedAlongDirection),
+        typeof(Assets.Code.Gameplay.Features.Hero.Hero),
+        typeof(Assets.Code.Gameplay.Input.AxisInput),
+        typeof(Assets.Code.Gameplay.Input.Input),
+        typeof(EntitasLearn.Gameplay.Common.Id),
+        typeof(EntitasLearn.Gameplay.Common.TransformComponent),
+        typeof(EntitasLearn.Gameplay.Common.WorldPosition)
     };
 }
