@@ -8,20 +8,26 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Direction = 0;
-    public const int Moving = 1;
-    public const int Speed = 2;
-    public const int TurnedAlongDirection = 3;
-    public const int Hero = 4;
-    public const int AxisInput = 5;
-    public const int Input = 6;
-    public const int Id = 7;
-    public const int Transform = 8;
-    public const int WorldPosition = 9;
+    public const int Destructed = 0;
+    public const int SelfDestructTimer = 1;
+    public const int View = 2;
+    public const int Direction = 3;
+    public const int Moving = 4;
+    public const int Speed = 5;
+    public const int TurnedAlongDirection = 6;
+    public const int Hero = 7;
+    public const int AxisInput = 8;
+    public const int Input = 9;
+    public const int Id = 10;
+    public const int Transform = 11;
+    public const int WorldPosition = 12;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
+        "Destructed",
+        "SelfDestructTimer",
+        "View",
         "Direction",
         "Moving",
         "Speed",
@@ -35,6 +41,9 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Assets.Code.Common.Destructed),
+        typeof(Assets.Code.Common.SelfDestructTimer),
+        typeof(Assets.Code.Common.View),
         typeof(Assets.Code.Gameplay.Common.Movement.Direction),
         typeof(Assets.Code.Gameplay.Common.Movement.Moving),
         typeof(Assets.Code.Gameplay.Common.Movement.Speed),
