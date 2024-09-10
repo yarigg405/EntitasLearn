@@ -15,14 +15,17 @@ public static class GameComponentsLookup {
     public const int Moving = 4;
     public const int Speed = 5;
     public const int TurnedAlongDirection = 6;
-    public const int Hero = 7;
-    public const int AxisInput = 8;
-    public const int Input = 9;
-    public const int Id = 10;
-    public const int Transform = 11;
-    public const int WorldPosition = 12;
+    public const int Enemy = 7;
+    public const int EnemyTypeId = 8;
+    public const int SpawnTimer = 9;
+    public const int Hero = 10;
+    public const int AxisInput = 11;
+    public const int Input = 12;
+    public const int Id = 13;
+    public const int Transform = 14;
+    public const int WorldPosition = 15;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -32,6 +35,9 @@ public static class GameComponentsLookup {
         "Moving",
         "Speed",
         "TurnedAlongDirection",
+        "Enemy",
+        "EnemyTypeId",
+        "SpawnTimer",
         "Hero",
         "AxisInput",
         "Input",
@@ -48,6 +54,9 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Common.Movement.Moving),
         typeof(Assets.Code.Gameplay.Common.Movement.Speed),
         typeof(Assets.Code.Gameplay.Common.Movement.TurnedAlongDirection),
+        typeof(Assets.Code.Gameplay.Features.Enemies.Enemy),
+        typeof(Assets.Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
+        typeof(Assets.Code.Gameplay.Features.Enemies.SpawnTimer),
         typeof(Assets.Code.Gameplay.Features.Hero.Hero),
         typeof(Assets.Code.Gameplay.Input.AxisInput),
         typeof(Assets.Code.Gameplay.Input.Input),

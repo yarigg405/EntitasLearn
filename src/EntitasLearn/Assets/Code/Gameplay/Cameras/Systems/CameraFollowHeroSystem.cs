@@ -12,18 +12,18 @@ namespace Assets.Code.Gameplay.Cameras.Systems
 
         public CameraFollowHeroSystem(GameContext context, ICameraProvider cameraProvider)
         {
-            _cameraProvider = cameraProvider;
-            _heroes = context.GetGroup(GameMatcher.AllOf(
-                GameMatcher.Hero,
-                GameMatcher.WorldPosition));
+            //_cameraProvider = cameraProvider;
+            //_heroes = context.GetGroup(GameMatcher.AllOf(
+            //    GameMatcher.Hero,
+            //    GameMatcher.WorldPosition));
         }
 
         void IExecuteSystem.Execute()
         {
-            foreach (var hero in _heroes)
-            {
-                _cameraProvider.MainCamera.transform.SetWorldXY(hero.WorldPosition.x, hero.WorldPosition.y);
-            }
+            //foreach (var hero in _heroes)
+            //{
+            //    _cameraProvider.MainCamera.transform.SetWorldXY(hero.WorldPosition.x, hero.WorldPosition.z);
+            //}
         }
     }
 }

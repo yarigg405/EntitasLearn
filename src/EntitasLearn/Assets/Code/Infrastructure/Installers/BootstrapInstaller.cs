@@ -1,3 +1,5 @@
+using Assets.Code.Gameplay.Common.Collisions;
+using Assets.Code.Infrastructure.Identifiers;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Input.Service;
@@ -54,6 +56,8 @@ namespace Code.Infrastructure.Installers
         private void BindCommonServices()
         {
             Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
+            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
+            Container.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
         }
 
         private void BindInputService()

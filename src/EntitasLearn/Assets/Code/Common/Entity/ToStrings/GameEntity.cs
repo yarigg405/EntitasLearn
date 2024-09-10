@@ -1,4 +1,6 @@
-﻿using Code.Common.Entity.ToStrings;
+﻿using Assets.Code.Gameplay.Features.Enemies;
+using Assets.Code.Gameplay.Features.Hero;
+using Code.Common.Entity.ToStrings;
 using Code.Common.Extensions;
 using Entitas;
 using System;
@@ -30,19 +32,14 @@ public sealed partial class GameEntity : INamedEntity
 
             foreach (IComponent component in components)
             {
+                switch (component.GetType().Name)
+                {
+                    case nameof(Hero):
+                        return PrintHero();
 
-                Debug.LogError("Here need");
-
-                return "Entity";
-
-                //switch (component.GetType().Name)
-                //{
-                //  case nameof(Hero):
-                //    return PrintHero();
-
-                //  case nameof(Enemy):
-                //    return PrintEnemy();
-                //}
+                    case nameof(Enemy):
+                        return PrintEnemy();
+                }
             }
         }
         catch (Exception exception)

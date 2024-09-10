@@ -1,4 +1,5 @@
 ﻿using Assets.Code.Common.Destruct;
+using Assets.Code.Gameplay.Features.Enemies;
 using Assets.Code.Gameplay.Features.Hero;
 using Assets.Code.Gameplay.Features.Movement;
 using Assets.Code.Gameplay.Input;
@@ -13,6 +14,7 @@ namespace Assets.Code.Gameplay
         {
             Add(systems.Create<InputFeature>());
             Add(systems.Create<HeroFeature>());
+            Add(systems.Create<EnemyFeature>());
             Add(systems.Create<MovementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
         }
