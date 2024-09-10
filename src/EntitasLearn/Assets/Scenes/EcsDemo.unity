@@ -276,7 +276,8 @@ GameObject:
   - component: {fileID: 902230536}
   - component: {fileID: 902230535}
   - component: {fileID: 902230537}
-  m_Layer: 0
+  - component: {fileID: 902230538}
+  m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 902230536}
+  maxHp: 100
   speed: 2
 --- !u!136 &902230531
 CapsuleCollider:
@@ -312,7 +314,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -424,6 +426,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityBehaviour: {fileID: 902230536}
+--- !u!54 &902230538
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902230529}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1035876327
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +802,7 @@ GameObject:
   - component: {fileID: 1514739474}
   - component: {fileID: 1514739473}
   - component: {fileID: 1514739472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,6 +903,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1619381840926432379, guid: bd4f6a42ebd02a746a18d76c5b459fe5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2307579814828868600, guid: bd4f6a42ebd02a746a18d76c5b459fe5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.89
@@ -917,6 +950,10 @@ PrefabInstance:
     - target: {fileID: 7735391920674504153, guid: bd4f6a42ebd02a746a18d76c5b459fe5, type: 3}
       propertyPath: m_Name
       value: EnemyBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735391920674504153, guid: bd4f6a42ebd02a746a18d76c5b459fe5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

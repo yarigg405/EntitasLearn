@@ -1,4 +1,5 @@
 using Assets.Code.Gameplay.Common.Collisions;
+using Assets.Code.Gameplay.Common.Physics;
 using Assets.Code.Infrastructure.Identifiers;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
@@ -58,6 +59,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
             Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
             Container.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
+            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
         }
 
         private void BindInputService()

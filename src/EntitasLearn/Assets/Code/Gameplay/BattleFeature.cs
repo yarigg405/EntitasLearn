@@ -1,7 +1,9 @@
 ﻿using Assets.Code.Common.Destruct;
+using Assets.Code.Gameplay.Features.DamageApplication;
 using Assets.Code.Gameplay.Features.Enemies;
 using Assets.Code.Gameplay.Features.Hero;
 using Assets.Code.Gameplay.Features.Movement;
+using Assets.Code.Gameplay.Features.TargetCollection;
 using Assets.Code.Gameplay.Input;
 using Code.Infrastructure.Systems;
 
@@ -17,6 +19,8 @@ namespace Assets.Code.Gameplay
             Add(systems.Create<EnemyFeature>());
             Add(systems.Create<MovementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
+            Add(systems.Create<CollectTargetsFeature>());
+            Add(systems.Create<DamageApplicationFeature>());
         }
     }
 }

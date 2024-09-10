@@ -19,13 +19,22 @@ public static class GameComponentsLookup {
     public const int EnemyTypeId = 8;
     public const int SpawnTimer = 9;
     public const int Hero = 10;
-    public const int AxisInput = 11;
-    public const int Input = 12;
-    public const int Id = 13;
-    public const int Transform = 14;
-    public const int WorldPosition = 15;
+    public const int CurrentHP = 11;
+    public const int MaxHP = 12;
+    public const int CollectTargetsInterval = 13;
+    public const int CollectTargetsTimer = 14;
+    public const int IsReadyToCollectTargets = 15;
+    public const int LayerMask = 16;
+    public const int Radius = 17;
+    public const int TargetsBuffer = 18;
+    public const int AxisInput = 19;
+    public const int Input = 20;
+    public const int Damage = 21;
+    public const int Id = 22;
+    public const int Transform = 23;
+    public const int WorldPosition = 24;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -39,8 +48,17 @@ public static class GameComponentsLookup {
         "EnemyTypeId",
         "SpawnTimer",
         "Hero",
+        "CurrentHP",
+        "MaxHP",
+        "CollectTargetsInterval",
+        "CollectTargetsTimer",
+        "IsReadyToCollectTargets",
+        "LayerMask",
+        "Radius",
+        "TargetsBuffer",
         "AxisInput",
         "Input",
+        "Damage",
         "Id",
         "Transform",
         "WorldPosition"
@@ -58,8 +76,17 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
         typeof(Assets.Code.Gameplay.Features.Enemies.SpawnTimer),
         typeof(Assets.Code.Gameplay.Features.Hero.Hero),
+        typeof(Assets.Code.Gameplay.Features.Lifetime.CurrentHP),
+        typeof(Assets.Code.Gameplay.Features.Lifetime.MaxHP),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.IsReadyToCollectTargets),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.LayerMask),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.Radius),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.TargetsBuffer),
         typeof(Assets.Code.Gameplay.Input.AxisInput),
         typeof(Assets.Code.Gameplay.Input.Input),
+        typeof(EntitasLearn.Gameplay.Common.Damage),
         typeof(EntitasLearn.Gameplay.Common.Id),
         typeof(EntitasLearn.Gameplay.Common.TransformComponent),
         typeof(EntitasLearn.Gameplay.Common.WorldPosition)
