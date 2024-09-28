@@ -10,7 +10,6 @@ namespace Assets.Code.Gameplay.Features.Movement
         {
             Add(systems.Create<DirectionalDeltaMoveSystem>());
             Add(systems.Create<TurnAlongDirectionSystem>());
-            Add(systems.Create<UpdateTransformPositionSystem>());
         }
     }
 }

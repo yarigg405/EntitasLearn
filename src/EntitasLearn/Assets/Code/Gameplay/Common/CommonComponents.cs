@@ -9,4 +9,5 @@ namespace EntitasLearn.Gameplay.Common
     [Game] public class WorldPosition : IComponent { public Vector3 Value; }
     [Game] public class TransformComponent : IComponent { public Transform Value; }
     [Game] public class Damage : IComponent { public float Value; }
+    [Game] public class RigidbodyComponent : IComponent { public Rigidbody Value; }
 }

@@ -7,6 +7,7 @@ namespace Assets.Code.Gameplay.Features.Enemies.Registrars
 {
     internal sealed class EnemyRegistrar : EntityComponentRegistrar
     {
+        [SerializeField] private Rigidbody rBody;
         [SerializeField] private float hp = 3;
         [SerializeField] private float damage = 5f;
         [SerializeField] private float speed;
@@ -18,6 +19,7 @@ namespace Assets.Code.Gameplay.Features.Enemies.Registrars
                 .AddEnemyTypeId(EnemyTypeId.Goblin)
                 .AddWorldPosition(transform.position)
                 .AddDirection(Vector2.zero)
+                .AddRigidbody(rBody)
                 .AddSpeed(speed)
                 .AddDamage(damage)
                 .AddCurrentHP(hp)
@@ -28,13 +30,13 @@ namespace Assets.Code.Gameplay.Features.Enemies.Registrars
                 .AddCollectTargetsTimer(0)
                 .AddLayerMask(CollisionLayer.Hero.AsMask())
                 .With(x => x.isEnemy = true)
-                .With(x=>x.isTurnedAlongDirection = true)
+                .With(x => x.isTurnedAlongDirection = true)
                 ;
         }
 
         public override void UnregisterComponents()
         {
-            
+
         }
     }
 }

@@ -2,12 +2,16 @@
 using Assets.Code.Gameplay.Common.Collisions;
 using UnityEngine;
 
+
 namespace Assets.Code.Gameplay.Common.Physics
 {
     public class PhysicsService : IPhysicsService
     {
         private static readonly RaycastHit2D[] Hits = new RaycastHit2D[128];
         private static readonly Collider2D[] OverlapHits = new Collider2D[128];
+
+        private static readonly RaycastHit[] Hits3d = new RaycastHit[128];
+        private static readonly Collider[] OverlapHits3d = new Collider[128];
 
         private readonly ICollisionRegistry _collisionRegistry;
 
@@ -74,6 +78,22 @@ namespace Assets.Code.Gameplay.Common.Physics
             return null;
         }
 
+        public IEnumerable<GameEntity> SphereCast(Vector3 position, float radius, int layerMask)
+        {
+            int hitCount = OverlapSphere(position, radius, OverlapHits3d, layerMask);
+
+            DrawDebug(position, radius, 1f, Color.red);
+
+            for (int i = 0; i < hitCount; i++)
+            {
+                GameEntity entity = _collisionRegistry.Get<GameEntity>(OverlapHits3d[i].GetInstanceID());
+                if (entity == null)
+                    continue;
+
+                yield return entity;
+            }
+        }
+
         public IEnumerable<GameEntity> CircleCast(Vector3 position, float radius, int layerMask)
         {
             int hitCount = OverlapCircle(position, radius, OverlapHits, layerMask);
@@ -131,6 +151,9 @@ namespace Assets.Code.Gameplay.Common.Physics
 
         public int OverlapCircle(Vector3 worldPos, float radius, Collider2D[] hits, int layerMask) =>
           Physics2D.OverlapCircleNonAlloc(worldPos, radius, hits, layerMask);
+
+        public int OverlapSphere(Vector3 worldPos, float radius, Collider[] hits, int layerMask) =>
+            UnityEngine.Physics.OverlapSphereNonAlloc(worldPos, radius, hits, layerMask);
 
         private static void DrawDebug(Vector2 worldPos, float radius, float seconds, Color color)
         {

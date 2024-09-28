@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Common.Time;
 using Entitas;
+using UnityEngine;
 
 
 namespace Assets.Code.Gameplay.Features.Movement.Systems
@@ -17,7 +18,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                     GameMatcher.WorldPosition,
                     GameMatcher.Direction,
                     GameMatcher.Speed,
-                    GameMatcher.Moving
+                    GameMatcher.Rigidbody
                 ));
         }
 
@@ -25,12 +26,9 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
         {
             foreach (var entity in _movers)
             {
-                var pos = entity.WorldPosition;
                 var moveDelta = entity.Direction * entity.Speed * _timeService.DeltaTime;
-                pos.x += moveDelta.x;
-                pos.z += moveDelta.y;
-
-                entity.ReplaceWorldPosition(pos);
+                var movingDirection = new Vector3(moveDelta.x, 0, moveDelta.y);
+                entity.Rigidbody.velocity = movingDirection * 100;
             }
         }
     }

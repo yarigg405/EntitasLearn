@@ -24,7 +24,7 @@ namespace Assets.Code.Gameplay.Features.Enemies.Systems
             foreach (var hero in _heroes)
                 foreach (var enemy in _enemies)
                 {
-                    var direction = (hero.WorldPosition - enemy.WorldPosition).normalized;
+                    var direction = (hero.Transform.position - enemy.Transform.position).normalized;
                     enemy.ReplaceDirection(new UnityEngine.Vector2(direction.x, direction.z));
                     enemy.isMoving = true;
                 }

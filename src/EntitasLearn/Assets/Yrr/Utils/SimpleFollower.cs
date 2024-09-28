@@ -20,6 +20,7 @@ namespace Yrr.Utils
 
         private void Update()
         {
+            if (!target) return;
             transform.position = target.transform.position + _offset;
         }
     }

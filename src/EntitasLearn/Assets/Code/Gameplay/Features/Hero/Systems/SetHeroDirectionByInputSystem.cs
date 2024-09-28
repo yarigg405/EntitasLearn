@@ -1,6 +1,5 @@
 ﻿using Entitas;
-using System;
-using UnityEngine.Assertions.Must;
+using UnityEngine;
 
 
 namespace Assets.Code.Gameplay.Features.Hero.Systems
@@ -21,12 +20,8 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
             foreach (var input in _inputs)
                 foreach (var hero in _heroes)
                 {
-                    hero.isMoving = input.hasAxisInput;
-
-                    if (input.hasAxisInput)
-                    {
-                        hero.ReplaceDirection(input.AxisInput.normalized);
-                    }
+                    hero.isMoving = input.AxisInput != Vector2.zero;
+                    hero.ReplaceDirection(input.AxisInput.normalized);
                 }
         }
     }

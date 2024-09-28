@@ -37,7 +37,7 @@ namespace Assets.Code.Gameplay.Features.TargetCollection.Systems
         {
             return
             _physicsService
-            .CircleCast(entity.WorldPosition, entity.Radius, entity.LayerMask)
+            .SphereCast(entity.Transform.position, entity.Radius, entity.LayerMask)
             .Select(x => x.Id);
         }
     }
