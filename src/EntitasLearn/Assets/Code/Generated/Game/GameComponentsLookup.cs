@@ -12,47 +12,55 @@ public static class GameComponentsLookup {
     public const int SelfDestructTimer = 1;
     public const int View = 2;
     public const int Direction = 3;
-    public const int Moving = 4;
-    public const int Speed = 5;
-    public const int TurnedAlongDirection = 6;
-    public const int Enemy = 7;
-    public const int EnemyTypeId = 8;
-    public const int SpawnTimer = 9;
-    public const int Hero = 10;
-    public const int HeroAnimator = 11;
-    public const int CurrentHP = 12;
-    public const int MaxHP = 13;
-    public const int CollectTargetsInterval = 14;
-    public const int CollectTargetsTimer = 15;
-    public const int IsReadyToCollectTargets = 16;
-    public const int LayerMask = 17;
-    public const int Radius = 18;
-    public const int TargetsBuffer = 19;
-    public const int AxisInput = 20;
-    public const int Input = 21;
-    public const int Damage = 22;
-    public const int Id = 23;
-    public const int Rigidbody = 24;
-    public const int Transform = 25;
-    public const int WorldPosition = 26;
+    public const int MovementAvailable = 4;
+    public const int Moving = 5;
+    public const int Speed = 6;
+    public const int TurnedAlongDirection = 7;
+    public const int Enemy = 8;
+    public const int EnemyAnimator = 9;
+    public const int EnemyTypeId = 10;
+    public const int SpawnTimer = 11;
+    public const int Hero = 12;
+    public const int HeroAnimator = 13;
+    public const int CurrentHP = 14;
+    public const int Dead = 15;
+    public const int MaxHP = 16;
+    public const int ProcessingDeath = 17;
+    public const int CollectTargetsInterval = 18;
+    public const int CollectTargetsTimer = 19;
+    public const int IsReadyToCollectTargets = 20;
+    public const int LayerMask = 21;
+    public const int Radius = 22;
+    public const int TargetsBuffer = 23;
+    public const int AxisInput = 24;
+    public const int Input = 25;
+    public const int Damage = 26;
+    public const int Id = 27;
+    public const int Rigidbody = 28;
+    public const int Transform = 29;
+    public const int WorldPosition = 30;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 31;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "SelfDestructTimer",
         "View",
         "Direction",
+        "MovementAvailable",
         "Moving",
         "Speed",
         "TurnedAlongDirection",
         "Enemy",
+        "EnemyAnimator",
         "EnemyTypeId",
         "SpawnTimer",
         "Hero",
         "HeroAnimator",
         "CurrentHP",
+        "Dead",
         "MaxHP",
+        "ProcessingDeath",
         "CollectTargetsInterval",
         "CollectTargetsTimer",
         "IsReadyToCollectTargets",
@@ -73,16 +81,20 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Common.SelfDestructTimer),
         typeof(Assets.Code.Common.View),
         typeof(Assets.Code.Gameplay.Common.Movement.Direction),
+        typeof(Assets.Code.Gameplay.Common.Movement.MovementAvailable),
         typeof(Assets.Code.Gameplay.Common.Movement.Moving),
         typeof(Assets.Code.Gameplay.Common.Movement.Speed),
         typeof(Assets.Code.Gameplay.Common.Movement.TurnedAlongDirection),
         typeof(Assets.Code.Gameplay.Features.Enemies.Enemy),
+        typeof(Assets.Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Assets.Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
         typeof(Assets.Code.Gameplay.Features.Enemies.SpawnTimer),
         typeof(Assets.Code.Gameplay.Features.Hero.Hero),
         typeof(Assets.Code.Gameplay.Features.Hero.HeroAnimatorComponent),
         typeof(Assets.Code.Gameplay.Features.Lifetime.CurrentHP),
+        typeof(Assets.Code.Gameplay.Features.Lifetime.Dead),
         typeof(Assets.Code.Gameplay.Features.Lifetime.MaxHP),
+        typeof(Assets.Code.Gameplay.Features.Lifetime.ProcessingDeath),
         typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
         typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
         typeof(Assets.Code.Gameplay.Features.TargetCollection.IsReadyToCollectTargets),

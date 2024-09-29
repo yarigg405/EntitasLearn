@@ -11,7 +11,10 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
 
         public SetHeroDirectionByInputSystem(GameContext context)
         {
-            _heroes = context.GetGroup(GameMatcher.Hero);
+            _heroes = context.GetGroup(GameMatcher.AllOf(
+                GameMatcher.Hero,
+                GameMatcher.MovementAvailable
+                ));
             _inputs = context.GetGroup(GameMatcher.Input);
         }
 

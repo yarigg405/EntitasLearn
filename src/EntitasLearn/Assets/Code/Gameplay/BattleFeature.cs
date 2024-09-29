@@ -2,6 +2,7 @@
 using Assets.Code.Gameplay.Features.DamageApplication;
 using Assets.Code.Gameplay.Features.Enemies;
 using Assets.Code.Gameplay.Features.Hero;
+using Assets.Code.Gameplay.Features.Lifetime;
 using Assets.Code.Gameplay.Features.Movement;
 using Assets.Code.Gameplay.Features.TargetCollection;
 using Assets.Code.Gameplay.Input;
@@ -18,9 +19,10 @@ namespace Assets.Code.Gameplay
             Add(systems.Create<HeroFeature>());
             Add(systems.Create<EnemyFeature>());
             Add(systems.Create<MovementFeature>());
-            Add(systems.Create<ProcessDestructedFeature>());
+            Add(systems.Create<DeathFeature>());                  
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<DamageApplicationFeature>());
+            Add(systems.Create<ProcessDestructedFeature>());
         }
     }
 }

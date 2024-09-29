@@ -3,13 +3,13 @@
 
 namespace Assets.Code.Gameplay.Features.Hero
 {
-    public sealed class HeroAnimator:MonoBehaviour
+    public sealed class HeroAnimator : MonoBehaviour
     {
         [SerializeField] private Animator anim;
 
         private readonly int _isMovingHash = Animator.StringToHash("isMoving");
         private readonly int _attackHash = Animator.StringToHash("attack");
-        private readonly int _diedHash = Animator.StringToHash("died");
+        private readonly int _diedHash = Animator.StringToHash("die");
         private readonly int _damageHash = Animator.StringToHash("damage");
 
         public void PlayMove()
@@ -25,6 +25,11 @@ namespace Assets.Code.Gameplay.Features.Hero
         public void PlayDamageTaken()
         {
             anim.SetTrigger(_damageHash);
+        }
+
+        public void PlayDie()
+        {
+            anim.SetTrigger(_diedHash);
         }
     }
 }

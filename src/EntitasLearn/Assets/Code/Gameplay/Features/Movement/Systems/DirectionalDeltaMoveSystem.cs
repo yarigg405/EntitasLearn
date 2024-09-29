@@ -18,6 +18,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                     GameMatcher.WorldPosition,
                     GameMatcher.Direction,
                     GameMatcher.Speed,
+                    GameMatcher.MovementAvailable,
                     GameMatcher.Rigidbody
                 ));
         }
