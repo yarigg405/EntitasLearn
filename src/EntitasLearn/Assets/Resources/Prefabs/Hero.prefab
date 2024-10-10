@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3904019849184451893}
-  - component: {fileID: 4957084556506374303}
   - component: {fileID: 2899426356482128879}
   - component: {fileID: 5945800572065898249}
-  - component: {fileID: 8437589680029028499}
   - component: {fileID: 6430519127715705386}
   - component: {fileID: 4561711680156012200}
   - component: {fileID: 1162258586662491146}
+  - component: {fileID: 255177910058765453}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -39,22 +38,6 @@ Transform:
   - {fileID: 2637464046283182146}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4957084556506374303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6980252484244485707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f0240e364ff3d4ca28d343bfec3738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityView: {fileID: 2899426356482128879}
-  rBody: {fileID: 4561711680156012200}
-  maxHp: 100
-  speed: 2
 --- !u!114 &2899426356482128879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,19 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 2899426356482128879}
---- !u!114 &8437589680029028499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6980252484244485707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca2016c7a36db148a3eda40159e8680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityBehaviour: {fileID: 2899426356482128879}
 --- !u!136 &6430519127715705386
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -157,6 +127,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 2899426356482128879}
   heroAnimator: {fileID: 2079733137636413412}
+--- !u!114 &255177910058765453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980252484244485707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badfb1685fa51f74494c543005a128d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 2899426356482128879}
+  body: {fileID: 4561711680156012200}
 --- !u!1001 &2635911866648000230
 PrefabInstance:
   m_ObjectHideFlags: 0

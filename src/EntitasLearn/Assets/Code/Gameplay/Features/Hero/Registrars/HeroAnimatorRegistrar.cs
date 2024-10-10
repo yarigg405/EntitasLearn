@@ -11,7 +11,7 @@ namespace Assets.Code.Gameplay.Features.Hero.Registrars
         public override void RegisterComponents()
         {
             Entity
-        .AddHeroAnimator(heroAnimator);
+                .AddHeroAnimator(heroAnimator);
         }
 
         public override void UnregisterComponents()

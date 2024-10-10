@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5298130501932727455}
   - component: {fileID: 1835256101903931388}
   - component: {fileID: 381749425933701990}
-  - component: {fileID: 6179251849784038498}
-  - component: {fileID: 1755753394549630950}
   - component: {fileID: 3362934143696872954}
   - component: {fileID: 5457954418075565094}
   - component: {fileID: 453805994228952676}
+  - component: {fileID: 4930996693763542642}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -64,37 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 1835256101903931388}
---- !u!114 &6179251849784038498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7458658441358888197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ec0b9496507ef4ead48d569e0eb3c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityView: {fileID: 1835256101903931388}
-  rBody: {fileID: 3362934143696872954}
-  hp: 3
-  damage: 5
-  speed: 1.5
-  radius: 1
---- !u!114 &1755753394549630950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7458658441358888197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca2016c7a36db148a3eda40159e8680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityBehaviour: {fileID: 1835256101903931388}
 --- !u!54 &3362934143696872954
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,6 +127,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 1835256101903931388}
   enemyAnimator: {fileID: 3890720742748403559}
+--- !u!114 &4930996693763542642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458658441358888197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badfb1685fa51f74494c543005a128d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 1835256101903931388}
+  body: {fileID: 3362934143696872954}
 --- !u!1001 &6677687628103659952
 PrefabInstance:
   m_ObjectHideFlags: 0

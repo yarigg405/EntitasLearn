@@ -1,10 +1,14 @@
 using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Physics;
+using Assets.Code.Gameplay.Features.Enemies.Factory;
+using Assets.Code.Gameplay.Features.Hero.Factory;
 using Assets.Code.Infrastructure.Identifiers;
+using Assets.Code.Infrastructure.View.Factory;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
+using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Systems;
 using Zenject;
 
@@ -17,7 +21,7 @@ namespace Code.Infrastructure.Installers
             BindInputService();
             BindInfrastructureServices();
             BindCommonServices();
-            BindSystemFactory();
+            BindFactories();
             BindContexts();
             BindGameplayServices();
             BindCameraProvider();
@@ -27,7 +31,7 @@ namespace Code.Infrastructure.Installers
         private void BindContexts()
         {
             Container.Bind<Contexts>().FromInstance(Contexts.sharedInstance).AsSingle();
-
+            Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
             Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
             Container.Bind<InputContext>().FromInstance(Contexts.sharedInstance.input).AsSingle();
             Container.Bind<MetaContext>().FromInstance(Contexts.sharedInstance.meta).AsSingle();
@@ -44,9 +48,12 @@ namespace Code.Infrastructure.Installers
         }
 
 
-        private void BindSystemFactory()
+        private void BindFactories()
         {
             Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
+            Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
+            Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
+            Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()

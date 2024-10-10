@@ -11,41 +11,45 @@ public static class GameComponentsLookup {
     public const int Destructed = 0;
     public const int SelfDestructTimer = 1;
     public const int View = 2;
-    public const int Direction = 3;
-    public const int MovementAvailable = 4;
-    public const int Moving = 5;
-    public const int Speed = 6;
-    public const int TurnedAlongDirection = 7;
-    public const int Enemy = 8;
-    public const int EnemyAnimator = 9;
-    public const int EnemyTypeId = 10;
-    public const int SpawnTimer = 11;
-    public const int Hero = 12;
-    public const int HeroAnimator = 13;
-    public const int CurrentHP = 14;
-    public const int Dead = 15;
-    public const int MaxHP = 16;
-    public const int ProcessingDeath = 17;
-    public const int CollectTargetsInterval = 18;
-    public const int CollectTargetsTimer = 19;
-    public const int IsReadyToCollectTargets = 20;
-    public const int LayerMask = 21;
-    public const int Radius = 22;
-    public const int TargetsBuffer = 23;
-    public const int AxisInput = 24;
-    public const int Input = 25;
-    public const int Damage = 26;
-    public const int Id = 27;
-    public const int Rigidbody = 28;
-    public const int Transform = 29;
-    public const int WorldPosition = 30;
+    public const int ViewPath = 3;
+    public const int ViewPrefab = 4;
+    public const int Direction = 5;
+    public const int MovementAvailable = 6;
+    public const int Moving = 7;
+    public const int Speed = 8;
+    public const int TurnedAlongDirection = 9;
+    public const int Enemy = 10;
+    public const int EnemyAnimator = 11;
+    public const int EnemyTypeId = 12;
+    public const int SpawnTimer = 13;
+    public const int Hero = 14;
+    public const int HeroAnimator = 15;
+    public const int CurrentHP = 16;
+    public const int Dead = 17;
+    public const int MaxHP = 18;
+    public const int ProcessingDeath = 19;
+    public const int CollectTargetsInterval = 20;
+    public const int CollectTargetsTimer = 21;
+    public const int IsReadyToCollectTargets = 22;
+    public const int LayerMask = 23;
+    public const int Radius = 24;
+    public const int TargetsBuffer = 25;
+    public const int AxisInput = 26;
+    public const int Input = 27;
+    public const int Damage = 28;
+    public const int Id = 29;
+    public const int Rigidbody = 30;
+    public const int Transform = 31;
+    public const int WorldPosition = 32;
 
-    public const int TotalComponents = 31;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "SelfDestructTimer",
         "View",
+        "ViewPath",
+        "ViewPrefab",
         "Direction",
         "MovementAvailable",
         "Moving",
@@ -80,6 +84,8 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Common.Destructed),
         typeof(Assets.Code.Common.SelfDestructTimer),
         typeof(Assets.Code.Common.View),
+        typeof(Assets.Code.Common.ViewPath),
+        typeof(Assets.Code.Common.ViewPrefab),
         typeof(Assets.Code.Gameplay.Common.Movement.Direction),
         typeof(Assets.Code.Gameplay.Common.Movement.MovementAvailable),
         typeof(Assets.Code.Gameplay.Common.Movement.Moving),

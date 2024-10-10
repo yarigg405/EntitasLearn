@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Assets.Code.Infrastructure.View
 {
-    internal sealed class EntityBehaviour : MonoBehaviour, IEntityView
+    public sealed class EntityBehaviour : MonoBehaviour, IEntityView
     {
         private GameEntity _entity;
         private ICollisionRegistry _collisionRegistry;
@@ -19,7 +19,7 @@ namespace Assets.Code.Infrastructure.View
             _collisionRegistry = collisionRegistry;
         }
 
-        void IEntityView.SetEntity(GameEntity entity)
+        public void SetEntity(GameEntity entity)
         {
             _entity = entity;
             _entity.AddView(this);
