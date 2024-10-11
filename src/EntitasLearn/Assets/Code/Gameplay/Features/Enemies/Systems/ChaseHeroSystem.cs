@@ -12,11 +12,11 @@ namespace Assets.Code.Gameplay.Features.Enemies.Systems
         {
             _enemies = context.GetGroup(GameMatcher.AllOf(
                   GameMatcher.Enemy,
-                  GameMatcher.WorldPosition));
+                  GameMatcher.Transform));
 
             _heroes = context.GetGroup(GameMatcher.AllOf(
                 GameMatcher.Hero,
-                GameMatcher.WorldPosition));
+                GameMatcher.Transform));
         }
 
         void IExecuteSystem.Execute()

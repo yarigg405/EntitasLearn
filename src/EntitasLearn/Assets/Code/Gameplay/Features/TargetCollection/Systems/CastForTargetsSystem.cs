@@ -18,7 +18,7 @@ namespace Assets.Code.Gameplay.Features.TargetCollection.Systems
             _entities = context.GetGroup(GameMatcher.AllOf(
                 GameMatcher.IsReadyToCollectTargets,
                 GameMatcher.TargetsBuffer,
-                GameMatcher.WorldPosition,
+                GameMatcher.Transform,
                 GameMatcher.Radius,
                 GameMatcher.LayerMask
                 ));

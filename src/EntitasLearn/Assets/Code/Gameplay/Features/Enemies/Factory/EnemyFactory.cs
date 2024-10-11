@@ -9,9 +9,9 @@ namespace Assets.Code.Gameplay.Features.Enemies.Factory
 {
     internal sealed class EnemyFactory : IEnemyFactory
     {
-        private readonly IdentifierService _identifierService;
+        private readonly IIdentifierService _identifierService;
 
-        public EnemyFactory(IdentifierService identifiers)
+        public EnemyFactory(IIdentifierService identifiers)
         {
             _identifierService = identifiers;
         }
@@ -44,6 +44,7 @@ namespace Assets.Code.Gameplay.Features.Enemies.Factory
                  .AddCollectTargetsInterval(0.5f)
                  .AddCollectTargetsTimer(0)
                  .AddLayerMask(CollisionLayer.Hero.AsMask())
+                 .AddViewPath("Prefabs/Goblin")
                  .With(x => x.isEnemy = true)
                  .With(x => x.isTurnedAlongDirection = true)
                  .With(x => x.isMovementAvailable = true)
