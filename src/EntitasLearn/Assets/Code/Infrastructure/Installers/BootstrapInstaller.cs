@@ -1,5 +1,7 @@
 using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Physics;
+using Assets.Code.Gameplay.Features.Abilities.Armaments.Factory;
+using Assets.Code.Gameplay.Features.Abilities.Factory;
 using Assets.Code.Gameplay.Features.Enemies.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
 using Assets.Code.Infrastructure.Identifiers;
@@ -8,6 +10,7 @@ using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
+using Code.Gameplay.StaticData;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Systems;
 using Zenject;
@@ -54,6 +57,8 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ArmamentsFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()
@@ -67,6 +72,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
             Container.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
             Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
         }
 
         private void BindInputService()

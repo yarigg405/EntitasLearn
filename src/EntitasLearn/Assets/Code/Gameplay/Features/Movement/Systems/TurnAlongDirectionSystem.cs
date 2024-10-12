@@ -14,8 +14,8 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                 .AllOf(
                 GameMatcher.TurnedAlongDirection,
                 GameMatcher.Moving,
-                GameMatcher.Transform,
-                GameMatcher.Transform));
+                GameMatcher.Transform
+                ));
         }
 
         void IExecuteSystem.Execute()
@@ -27,7 +27,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                     var direction = entity.Direction;
                     var angle = Vector2.SignedAngle(Vector2.up, direction);
 
-                    entity.Transform.transform.rotation = Quaternion.Euler(0, -angle, 0);
+                    entity.Transform.rotation = Quaternion.Euler(0, -angle, 0);
                 }
             }
         }

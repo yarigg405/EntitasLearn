@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherIsReadyToCollectTargets;
+    static Entitas.IMatcher<GameEntity> _matcherArmament;
 
-    public static Entitas.IMatcher<GameEntity> IsReadyToCollectTargets {
+    public static Entitas.IMatcher<GameEntity> Armament {
         get {
-            if (_matcherIsReadyToCollectTargets == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.IsReadyToCollectTargets);
+            if (_matcherArmament == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Armament);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherIsReadyToCollectTargets = matcher;
+                _matcherArmament = matcher;
             }
 
-            return _matcherIsReadyToCollectTargets;
+            return _matcherArmament;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Assets.Code.Gameplay.Features.TargetCollection.IsReadyToCollectTargets isReadyToCollectTargetsComponent = new Assets.Code.Gameplay.Features.TargetCollection.IsReadyToCollectTargets();
+    static readonly Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.Armament armamentComponent = new Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.Armament();
 
-    public bool isIsReadyToCollectTargets {
-        get { return HasComponent(GameComponentsLookup.IsReadyToCollectTargets); }
+    public bool isArmament {
+        get { return HasComponent(GameComponentsLookup.Armament); }
         set {
-            if (value != isIsReadyToCollectTargets) {
-                var index = GameComponentsLookup.IsReadyToCollectTargets;
+            if (value != isArmament) {
+                var index = GameComponentsLookup.Armament;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : isReadyToCollectTargetsComponent;
+                            : armamentComponent;
 
                     AddComponent(index, component);
                 } else {

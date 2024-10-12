@@ -13,7 +13,7 @@
             if (entity.hasCollectTargetsTimer)
                 entity.RemoveCollectTargetsTimer();
 
-            entity.isIsReadyToCollectTargets = false;
+            entity.isReadyToCollectTargets = false;
 
             return entity;
         }

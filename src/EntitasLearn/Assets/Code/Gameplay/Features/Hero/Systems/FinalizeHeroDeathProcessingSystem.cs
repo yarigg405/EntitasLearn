@@ -23,6 +23,9 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
             foreach (var hero in _heroes.GetEntities(_buffer))
             {
                 hero.isProcessingDeath = false;
+                hero.ReplaceDirection(UnityEngine.Vector2.zero);
+                hero.isMovementAvailable = false;
+                hero.Rigidbody.velocity = UnityEngine.Vector3.zero;
             }
         }
     }

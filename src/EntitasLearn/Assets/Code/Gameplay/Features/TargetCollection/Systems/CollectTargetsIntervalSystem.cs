@@ -28,7 +28,7 @@ namespace Assets.Code.Gameplay.Features.TargetCollection.Systems
 
                 if (entity.CollectTargetsTimer <= 0)
                 {
-                    entity.isIsReadyToCollectTargets = true;
+                    entity.isReadyToCollectTargets = true;
                     entity.ReplaceCollectTargetsTimer(entity.CollectTargetsInterval);
                 }
             }

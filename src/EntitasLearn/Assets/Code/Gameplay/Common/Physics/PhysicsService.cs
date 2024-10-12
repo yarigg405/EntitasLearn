@@ -82,8 +82,6 @@ namespace Assets.Code.Gameplay.Common.Physics
         {
             int hitCount = OverlapSphere(position, radius, OverlapHits3d, layerMask);
 
-            DrawDebug(position, radius, 1f, Color.red);
-
             for (int i = 0; i < hitCount; i++)
             {
                 GameEntity entity = _collisionRegistry.Get<GameEntity>(OverlapHits3d[i].GetInstanceID());
@@ -92,6 +90,23 @@ namespace Assets.Code.Gameplay.Common.Physics
 
                 yield return entity;
             }
+        }
+
+        public int SphereCastNonAlloc(Vector3 position, float radius, int layerMask, GameEntity[] hitBuffer)
+        {
+            int hitCount = OverlapSphere(position, radius, OverlapHits3d, layerMask);
+
+            for (int i = 0; i < hitCount; i++)
+            {
+                GameEntity entity = _collisionRegistry.Get<GameEntity>(OverlapHits3d[i].GetInstanceID());
+                if (entity == null)
+                    continue;
+
+                if (i < hitBuffer.Length)
+                    hitBuffer[i] = entity;
+            }
+
+            return hitCount;
         }
 
         public IEnumerable<GameEntity> CircleCast(Vector3 position, float radius, int layerMask)

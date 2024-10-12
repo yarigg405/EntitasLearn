@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494b9272318d00d4c992fcd03411467d, type: 3}
+  m_Name: VegetableBoltConfig
+  m_EditorClassIdentifier: 
+  <AbilityId>k__BackingField: 1
+  <AbilityLevels>k__BackingField:
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    ProjectileSetup:
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
