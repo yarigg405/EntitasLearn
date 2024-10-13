@@ -50,6 +50,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Systems
 
                     _armamentsFactory
                         .CreateVegetableBolt(1, hero.Transform.position)
+                        .AddProducerId(hero.Id)
                         .ReplaceDirection(RandomEnemyDirection(hero.Transform))
                         .With(x => x.isMoving = true);
 

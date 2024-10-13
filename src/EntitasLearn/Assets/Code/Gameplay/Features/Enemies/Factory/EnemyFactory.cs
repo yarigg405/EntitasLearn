@@ -1,4 +1,5 @@
-﻿using Assets.Code.Infrastructure.Identifiers;
+﻿using Assets.Code.Gameplay.Features.Effects;
+using Assets.Code.Infrastructure.Identifiers;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using System;
@@ -36,7 +37,7 @@ namespace Assets.Code.Gameplay.Features.Enemies.Factory
                  .AddWorldPosition(spawnPos)
                  .AddDirection(Vector2.zero)
                  .AddSpeed(1.5f)
-                 .AddDamage(5)
+                 .AddEffectSetups(new System.Collections.Generic.List<EffectSetup>() { new EffectSetup { EffectTypeId = EffectTypeId.Damage, Value = 5 } })
                  .AddCurrentHP(3)
                  .AddMaxHP(3)
                  .AddTargetsBuffer(new(1))

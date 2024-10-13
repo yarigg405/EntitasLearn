@@ -16,6 +16,9 @@ MonoBehaviour:
   <AbilityLevels>k__BackingField:
   - CoolDown: 1
     ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 5
     ProjectileSetup:
       Speed: 8
       Pierce: 1

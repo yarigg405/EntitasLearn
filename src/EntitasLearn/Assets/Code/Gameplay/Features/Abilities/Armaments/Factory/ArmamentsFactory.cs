@@ -29,7 +29,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Armaments.Factory
                 .With(x => x.isArmament = true)
                 .AddViewPrefab(abilityLevel.ViewPrefab)
                 .AddSpeed(setup.Speed)
-                .AddDamage(1)
+                .AddEffectSetups(abilityLevel.EffectSetups)
                 .AddRadius(setup.ContactRadius)
                 .AddTargetsBuffer(new(16))
                 .AddProcessedTargets(new(16))

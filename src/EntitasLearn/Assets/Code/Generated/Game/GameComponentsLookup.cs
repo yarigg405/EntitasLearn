@@ -21,38 +21,44 @@ public static class GameComponentsLookup {
     public const int AbilityId = 10;
     public const int VegetableBoltAbitily = 11;
     public const int Armament = 12;
-    public const int Processed = 13;
-    public const int TargetLimit = 14;
-    public const int Cooldown = 15;
-    public const int CooldownIsUp = 16;
-    public const int CooldownLeft = 17;
-    public const int Enemy = 18;
-    public const int EnemyAnimator = 19;
-    public const int EnemyTypeId = 20;
-    public const int SpawnTimer = 21;
-    public const int Hero = 22;
-    public const int HeroAnimator = 23;
-    public const int CurrentHP = 24;
-    public const int Dead = 25;
-    public const int MaxHP = 26;
-    public const int ProcessingDeath = 27;
-    public const int CollectingTargetsContiniously = 28;
-    public const int CollectTargetsInterval = 29;
-    public const int CollectTargetsTimer = 30;
-    public const int LayerMask = 31;
-    public const int ProcessedTargets = 32;
-    public const int Radius = 33;
-    public const int ReadyToCollectTargets = 34;
-    public const int TargetsBuffer = 35;
-    public const int AxisInput = 36;
-    public const int Input = 37;
-    public const int Damage = 38;
-    public const int Id = 39;
-    public const int Rigidbody = 40;
-    public const int Transform = 41;
-    public const int WorldPosition = 42;
+    public const int EffectSetups = 13;
+    public const int Processed = 14;
+    public const int TargetLimit = 15;
+    public const int Cooldown = 16;
+    public const int CooldownIsUp = 17;
+    public const int CooldownLeft = 18;
+    public const int DamageEffect = 19;
+    public const int Effect = 20;
+    public const int EffectValue = 21;
+    public const int ProducerId = 22;
+    public const int TargetId = 23;
+    public const int Enemy = 24;
+    public const int EnemyAnimator = 25;
+    public const int EnemyTypeId = 26;
+    public const int SpawnTimer = 27;
+    public const int Hero = 28;
+    public const int HeroAnimator = 29;
+    public const int CurrentHP = 30;
+    public const int Dead = 31;
+    public const int MaxHP = 32;
+    public const int ProcessingDeath = 33;
+    public const int CollectingTargetsContiniously = 34;
+    public const int CollectTargetsInterval = 35;
+    public const int CollectTargetsTimer = 36;
+    public const int LayerMask = 37;
+    public const int ProcessedTargets = 38;
+    public const int Radius = 39;
+    public const int ReadyToCollectTargets = 40;
+    public const int TargetsBuffer = 41;
+    public const int AxisInput = 42;
+    public const int Input = 43;
+    public const int Damage = 44;
+    public const int Id = 45;
+    public const int Rigidbody = 46;
+    public const int Transform = 47;
+    public const int WorldPosition = 48;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 49;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -68,11 +74,17 @@ public static class GameComponentsLookup {
         "AbilityId",
         "VegetableBoltAbitily",
         "Armament",
+        "EffectSetups",
         "Processed",
         "TargetLimit",
         "Cooldown",
         "CooldownIsUp",
         "CooldownLeft",
+        "DamageEffect",
+        "Effect",
+        "EffectValue",
+        "ProducerId",
+        "TargetId",
         "Enemy",
         "EnemyAnimator",
         "EnemyTypeId",
@@ -114,11 +126,17 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent),
         typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.VegetableBoltAbitily),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.Armament),
+        typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.EffectSetups),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.Processed),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.TargetLimit),
         typeof(Assets.Code.Gameplay.Features.Abilities.Cooldowns.CooldownComponents.Cooldown),
         typeof(Assets.Code.Gameplay.Features.Abilities.Cooldowns.CooldownComponents.CooldownIsUp),
         typeof(Assets.Code.Gameplay.Features.Abilities.Cooldowns.CooldownComponents.CooldownLeft),
+        typeof(Assets.Code.Gameplay.Features.Effects.DamageEffect),
+        typeof(Assets.Code.Gameplay.Features.Effects.Effect),
+        typeof(Assets.Code.Gameplay.Features.Effects.EffectValue),
+        typeof(Assets.Code.Gameplay.Features.Effects.ProducerId),
+        typeof(Assets.Code.Gameplay.Features.Effects.TargetId),
         typeof(Assets.Code.Gameplay.Features.Enemies.Enemy),
         typeof(Assets.Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Assets.Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),

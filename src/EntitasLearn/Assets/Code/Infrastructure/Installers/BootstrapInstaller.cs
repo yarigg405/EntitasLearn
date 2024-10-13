@@ -2,6 +2,7 @@ using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Physics;
 using Assets.Code.Gameplay.Features.Abilities.Armaments.Factory;
 using Assets.Code.Gameplay.Features.Abilities.Factory;
+using Assets.Code.Gameplay.Features.Effects.Factory;
 using Assets.Code.Gameplay.Features.Enemies.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
 using Assets.Code.Infrastructure.Identifiers;
@@ -59,6 +60,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ArmamentsFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()
