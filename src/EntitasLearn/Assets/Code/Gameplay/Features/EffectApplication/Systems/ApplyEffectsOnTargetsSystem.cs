@@ -1,6 +1,5 @@
 ﻿using Assets.Code.Gameplay.Features.Effects.Factory;
 using Entitas;
-using System;
 
 
 namespace Assets.Code.Gameplay.Features.EffectApplication.Systems

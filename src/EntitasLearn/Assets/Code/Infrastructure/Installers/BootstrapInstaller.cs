@@ -1,3 +1,4 @@
+using Assets.Code.Common.EntityIndicies;
 using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Physics;
 using Assets.Code.Gameplay.Features.Abilities.Armaments.Factory;
@@ -5,6 +6,8 @@ using Assets.Code.Gameplay.Features.Abilities.Factory;
 using Assets.Code.Gameplay.Features.Effects.Factory;
 using Assets.Code.Gameplay.Features.Enemies.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
+using Assets.Code.Gameplay.Features.Statuses.Applier;
+using Assets.Code.Gameplay.Features.Statuses.Factory;
 using Assets.Code.Infrastructure.Identifiers;
 using Assets.Code.Infrastructure.View.Factory;
 using Code.Gameplay.Cameras.Provider;
@@ -14,6 +17,7 @@ using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Systems;
+using System;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -29,8 +33,8 @@ namespace Code.Infrastructure.Installers
             BindContexts();
             BindGameplayServices();
             BindCameraProvider();
+            BindCustomIndicies();
         }
-
 
         private void BindContexts()
         {
@@ -49,6 +53,7 @@ namespace Code.Infrastructure.Installers
         private void BindGameplayServices()
         {
             Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StatusApplier>().AsSingle();
         }
 
 
@@ -61,6 +66,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<ArmamentsFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StatusFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()
@@ -80,6 +86,11 @@ namespace Code.Infrastructure.Installers
         private void BindInputService()
         {
             Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
+        }
+
+        private void BindCustomIndicies()
+        {
+            Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
         }
 
         void IInitializable.Initialize()

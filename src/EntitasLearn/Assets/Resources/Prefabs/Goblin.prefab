@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5457954418075565094}
   - component: {fileID: 453805994228952676}
   - component: {fileID: 4930996693763542642}
+  - component: {fileID: 5089642131771880264}
+  - component: {fileID: 2041577113049131918}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Untagged
@@ -141,6 +143,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 1835256101903931388}
   body: {fileID: 3362934143696872954}
+--- !u!114 &5089642131771880264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458658441358888197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd732dce517468e4b9c738a9974d4096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2041577113049131918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458658441358888197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4eb1ea8eb5cf04eb0896a26f4379b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 1835256101903931388}
+  statusVisuals: {fileID: 5089642131771880264}
 --- !u!1001 &6677687628103659952
 PrefabInstance:
   m_ObjectHideFlags: 0

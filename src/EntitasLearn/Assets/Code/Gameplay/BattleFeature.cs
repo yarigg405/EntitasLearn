@@ -7,6 +7,7 @@ using Assets.Code.Gameplay.Features.Enemies;
 using Assets.Code.Gameplay.Features.Hero;
 using Assets.Code.Gameplay.Features.Lifetime;
 using Assets.Code.Gameplay.Features.Movement;
+using Assets.Code.Gameplay.Features.Statuses;
 using Assets.Code.Gameplay.Features.TargetCollection;
 using Assets.Code.Gameplay.Input;
 using Assets.Code.Infrastructure.View;
@@ -30,6 +31,7 @@ namespace Assets.Code.Gameplay
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<EffectApplicationFeature>());
             Add(systems.Create<EffectsFeature>());
+            Add(systems.Create<StatusFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
         }
     }

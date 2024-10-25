@@ -1,6 +1,6 @@
 ﻿namespace Assets.Code.Gameplay.Common.Visual
 {
-    internal interface IDamageTakenAnimator
+    public interface IDamageTakenAnimator
     {
         void PlayDamageTaken();
     }
