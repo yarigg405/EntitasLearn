@@ -4,15 +4,19 @@ using Code.Infrastructure.Systems;
 
 namespace Assets.Code.Gameplay.Features.Statuses
 {
-    internal sealed class StatusFeature: Feature
+    internal sealed class StatusFeature : Feature
     {
 
         public StatusFeature(ISystemFactory systems)
         {
             Add(systems.Create<StatusDurationSystem>());
             Add(systems.Create<PeriodicDamageStatusSystem>());
+            Add(systems.Create<ApplyFreezeStatusSystem>());
+
+
             Add(systems.Create<StatusVisualsFeature>());
 
+            Add(systems.Create<CleanupUnappliedStatusLinkedChanges>());
             Add(systems.Create<CleanupUnappliedStatuses>());
         }
     }

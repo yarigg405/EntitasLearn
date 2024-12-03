@@ -1,4 +1,5 @@
-﻿using Assets.Code.Gameplay.Features.Effects;
+﻿using Assets.Code.Gameplay.Features.CharacterStats;
+using Assets.Code.Gameplay.Features.Effects;
 using Assets.Code.Infrastructure.Identifiers;
 using Code.Common.Entity;
 using Code.Common.Extensions;
@@ -31,15 +32,23 @@ namespace Assets.Code.Gameplay.Features.Enemies.Factory
 
         private GameEntity CreateGoblin(Vector3 spawnPos)
         {
+            var baseStats = InitStats.EmptyStatDictionary()
+                .With(x => x[Stats.Speed] = 1.5f)
+                .With(x => x[Stats.MaxHp] = 3)
+                .With(x => x[Stats.Damage] = 5);
+
+
             return CreateEntity.Empty()
                  .AddId(_identifierService.Next())
                  .AddEnemyTypeId(EnemyTypeId.Goblin)
                  .AddWorldPosition(spawnPos)
                  .AddDirection(Vector2.zero)
-                 .AddSpeed(1.5f)
-                 .AddEffectSetups(new System.Collections.Generic.List<EffectSetup>() { new EffectSetup { EffectTypeId = EffectTypeId.Damage, Value = 5 } })
-                 .AddCurrentHP(3)
-                 .AddMaxHP(3)
+                 .AddBaseStats(baseStats)
+                 .AddStatModifiers(InitStats.EmptyStatDictionary())
+                 .AddSpeed(baseStats[Stats.Speed])
+                 .AddEffectSetups(new System.Collections.Generic.List<EffectSetup>() { new EffectSetup { EffectTypeId = EffectTypeId.Damage, Value = baseStats[Stats.Damage] } })
+                 .AddCurrentHP(baseStats[Stats.MaxHp])
+                 .AddMaxHP(baseStats[Stats.MaxHp])
                  .AddTargetsBuffer(new(1))
                  .AddRadius(1)
                  .AddCollectTargetsInterval(0.5f)

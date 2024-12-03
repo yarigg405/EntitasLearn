@@ -27,6 +27,11 @@ namespace Assets.Code.Gameplay.Features.Statuses.Factory
                     }
                     break;
 
+                case StatusTypeId.Freeze:
+                    {
+                        status = CreateFreezeStatus(setup, producerId, targetId);
+                    }break;                    
+
                 default:
                     throw new Exception($"Status with type not found: {setup.StatusTypeId}");
             }
@@ -51,6 +56,19 @@ namespace Assets.Code.Gameplay.Features.Statuses.Factory
                     .AddTargetId(targetId)
                     .With(x => x.isStatus = true)
                     .With(x => x.isPoison = true)
+                    ;
+        } 
+        
+        private GameEntity CreateFreezeStatus(StatusSetup setup, int producerId, int targetId)
+        {
+            return CreateEntity.Empty()
+                    .AddId(_identifiers.Next())
+                    .AddStatusTypeId(StatusTypeId.Freeze)
+                    .AddEffectValue(setup.Value)
+                    .AddProducerId(producerId)
+                    .AddTargetId(targetId)
+                    .With(x => x.isStatus = true)
+                    .With(x => x.isFreeze = true)
                     ;
         }
     }

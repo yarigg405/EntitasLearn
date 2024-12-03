@@ -8,5 +8,6 @@ namespace Assets.Code.Gameplay.Features.Statuses
     {
         None,
         Poison,
+        Freeze,
     }
 }

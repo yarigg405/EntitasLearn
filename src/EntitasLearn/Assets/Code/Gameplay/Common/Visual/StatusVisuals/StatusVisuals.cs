@@ -14,5 +14,15 @@ namespace Assets.Code.Gameplay.Common.Visual.StatusVisuals
         {
             Debug.Log("Poison unapplied", gameObject);
         }
+
+        public void ApplyFreeze()
+        {
+            Debug.Log("Freeze applied", gameObject);
+        }
+
+        public void UnapplyFreeze()
+        {
+            Debug.Log("Freeze unapplied", gameObject);
+        }
     }
 }
