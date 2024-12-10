@@ -23,67 +23,71 @@ public static class GameComponentsLookup {
     public const int Speed = 12;
     public const int TurnedAlongDirection = 13;
     public const int AbilityId = 14;
-    public const int OrbitingMusrhoomAbility = 15;
-    public const int ParentAbility = 16;
-    public const int VegetableBoltAbitily = 17;
-    public const int Armament = 18;
-    public const int EffectSetups = 19;
-    public const int Processed = 20;
-    public const int StatusSetups = 21;
-    public const int TargetLimit = 22;
-    public const int Cooldown = 23;
-    public const int CooldownIsUp = 24;
-    public const int CooldownLeft = 25;
-    public const int BaseStats = 26;
-    public const int StatChange = 27;
-    public const int StatModifiers = 28;
-    public const int DamageEffect = 29;
-    public const int Effect = 30;
-    public const int EffectValue = 31;
-    public const int HealEffect = 32;
-    public const int ProducerId = 33;
-    public const int TargetId = 34;
-    public const int Enemy = 35;
-    public const int EnemyAnimator = 36;
-    public const int EnemyTypeId = 37;
-    public const int SpawnTimer = 38;
-    public const int Hero = 39;
-    public const int HeroAnimator = 40;
-    public const int CurrentHP = 41;
-    public const int Dead = 42;
-    public const int MaxHP = 43;
-    public const int ProcessingDeath = 44;
-    public const int Affected = 45;
-    public const int Applied = 46;
-    public const int ApplierStatusLink = 47;
-    public const int Duration = 48;
-    public const int Freeze = 49;
-    public const int Period = 50;
-    public const int Poison = 51;
-    public const int Status = 52;
-    public const int StatusTypeId = 53;
-    public const int TimeLeft = 54;
-    public const int TimeSinceLastTick = 55;
-    public const int Unapplied = 56;
-    public const int CollectingTargetsContiniously = 57;
-    public const int CollectTargetsInterval = 58;
-    public const int CollectTargetsTimer = 59;
-    public const int LayerMask = 60;
-    public const int ProcessedTargets = 61;
-    public const int Radius = 62;
-    public const int ReadyToCollectTargets = 63;
-    public const int TargetsBuffer = 64;
-    public const int AxisInput = 65;
-    public const int Input = 66;
-    public const int Damage = 67;
-    public const int DamageTakenAnimator = 68;
-    public const int Id = 69;
-    public const int Rigidbody = 70;
-    public const int StatusVisuals = 71;
-    public const int Transform = 72;
-    public const int WorldPosition = 73;
+    public const int GarlicAuraAbility = 15;
+    public const int OrbitingMusrhoomAbility = 16;
+    public const int ParentAbility = 17;
+    public const int VegetableBoltAbitily = 18;
+    public const int Armament = 19;
+    public const int EffectSetups = 20;
+    public const int FollowingProducer = 21;
+    public const int Processed = 22;
+    public const int StatusSetups = 23;
+    public const int TargetLimit = 24;
+    public const int Cooldown = 25;
+    public const int CooldownIsUp = 26;
+    public const int CooldownLeft = 27;
+    public const int BaseStats = 28;
+    public const int StatChange = 29;
+    public const int StatModifiers = 30;
+    public const int DamageEffect = 31;
+    public const int Effect = 32;
+    public const int EffectValue = 33;
+    public const int HealEffect = 34;
+    public const int ProducerId = 35;
+    public const int TargetId = 36;
+    public const int Enemy = 37;
+    public const int EnemyAnimator = 38;
+    public const int EnemyTypeId = 39;
+    public const int SpawnTimer = 40;
+    public const int Hero = 41;
+    public const int HeroAnimator = 42;
+    public const int CurrentHP = 43;
+    public const int Dead = 44;
+    public const int MaxHP = 45;
+    public const int ProcessingDeath = 46;
+    public const int Affected = 47;
+    public const int Applied = 48;
+    public const int ApplierStatusLink = 49;
+    public const int Duration = 50;
+    public const int Freeze = 51;
+    public const int Period = 52;
+    public const int Poison = 53;
+    public const int Status = 54;
+    public const int StatusTypeId = 55;
+    public const int TimeLeft = 56;
+    public const int TimeSinceLastTick = 57;
+    public const int Unapplied = 58;
+    public const int CollectingTargetsContiniously = 59;
+    public const int CollectTargetsInterval = 60;
+    public const int CollectTargetsTimer = 61;
+    public const int LayerMask = 62;
+    public const int ProcessedTargets = 63;
+    public const int Radius = 64;
+    public const int ReadyToCollectTargets = 65;
+    public const int TargetsBuffer = 66;
+    public const int AxisInput = 67;
+    public const int Input = 68;
+    public const int Active = 69;
+    public const int Damage = 70;
+    public const int DamageTakenAnimator = 71;
+    public const int EntityLink = 72;
+    public const int Id = 73;
+    public const int Rigidbody = 74;
+    public const int StatusVisuals = 75;
+    public const int Transform = 76;
+    public const int WorldPosition = 77;
 
-    public const int TotalComponents = 74;
+    public const int TotalComponents = 78;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -101,11 +105,13 @@ public static class GameComponentsLookup {
         "Speed",
         "TurnedAlongDirection",
         "AbilityId",
+        "GarlicAuraAbility",
         "OrbitingMusrhoomAbility",
         "ParentAbility",
         "VegetableBoltAbitily",
         "Armament",
         "EffectSetups",
+        "FollowingProducer",
         "Processed",
         "StatusSetups",
         "TargetLimit",
@@ -153,8 +159,10 @@ public static class GameComponentsLookup {
         "TargetsBuffer",
         "AxisInput",
         "Input",
+        "Active",
         "Damage",
         "DamageTakenAnimator",
+        "EntityLink",
         "Id",
         "Rigidbody",
         "StatusVisuals",
@@ -178,11 +186,13 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Common.Movement.Speed),
         typeof(Assets.Code.Gameplay.Common.Movement.TurnedAlongDirection),
         typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent),
+        typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.GarlicAuraAbility),
         typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.OrbitingMusrhoomAbility),
         typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.ParentAbility),
         typeof(Assets.Code.Gameplay.Features.Abilities.AbilityComponents.VegetableBoltAbitily),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.Armament),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.EffectSetups),
+        typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.FollowingProducer),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.Processed),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.StatusSetups),
         typeof(Assets.Code.Gameplay.Features.Abilities.Armaments.ArmamentComponents.TargetLimit),
@@ -230,8 +240,10 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.TargetCollection.TargetsBuffer),
         typeof(Assets.Code.Gameplay.Input.AxisInput),
         typeof(Assets.Code.Gameplay.Input.Input),
+        typeof(EntitasLearn.Gameplay.Common.Active),
         typeof(EntitasLearn.Gameplay.Common.Damage),
         typeof(EntitasLearn.Gameplay.Common.DamageTakenAnimator),
+        typeof(EntitasLearn.Gameplay.Common.EntityLink),
         typeof(EntitasLearn.Gameplay.Common.Id),
         typeof(EntitasLearn.Gameplay.Common.RigidbodyComponent),
         typeof(EntitasLearn.Gameplay.Common.StatusVisualsComponent),

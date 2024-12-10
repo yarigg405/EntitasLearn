@@ -6,14 +6,12 @@ namespace Assets.Code.Gameplay.Features.Statuses.Systems
 {
     internal sealed class ApplyStatusesOnTargetsSystem : IExecuteSystem
     {
-        private readonly StatusApplier _statusSpplier;
+        private readonly StatusApplier _statusApplier;
         private readonly IGroup<GameEntity> _entities;
-        private readonly GameContext _gameContext;
 
         public ApplyStatusesOnTargetsSystem(GameContext context, StatusApplier statusApplier)
         {
-            _gameContext = context;
-            _statusSpplier = statusApplier;
+            _statusApplier = statusApplier;
 
             _entities = context.GetGroup(GameMatcher.AllOf(
                 GameMatcher.StatusSetups,
@@ -26,7 +24,7 @@ namespace Assets.Code.Gameplay.Features.Statuses.Systems
                 foreach (var targetId in entity.TargetsBuffer)
                     foreach (var setup in entity.StatusSetups)
                     {
-                        _statusSpplier.ApplyStatus(setup, ProducerId(entity), targetId);
+                        _statusApplier.ApplyStatus(setup, ProducerId(entity), targetId);
                     }
         }
 

@@ -34,7 +34,6 @@ namespace Assets.Code.Gameplay.Features.Statuses.Systems
                     .AddEffectValue(status.EffectValue)
                     .AddApplierStatusLink(status.Id);
 
-
                 status.isAffected = true;
             }
         }

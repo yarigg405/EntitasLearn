@@ -53,7 +53,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Systems
 
         private void CreateProjectile(GameEntity hero, float phase, int level)
         {
-            _armamentsFactory.CreateMushroom(level, hero.Transform.position + Vector3.up, phase)
+            _armamentsFactory.CreateMushroomBolt(level, hero.Transform.position + Vector3.up, phase)
                 .AddProducerId(hero.Id)
                 .AddOrbitCenterPosition(hero.Transform.position)
                 .AddOrbitCenterFollowTarget(hero.Id)

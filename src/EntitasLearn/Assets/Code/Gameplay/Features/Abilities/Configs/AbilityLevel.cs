@@ -19,5 +19,8 @@ namespace Assets.Code.Gameplay.Features.Abilities.Configs
 
         [Space]
         public ProjectileSetup ProjectileSetup;
+
+        [Space]
+        public AuraSetup AuraSetup;
     }
 }

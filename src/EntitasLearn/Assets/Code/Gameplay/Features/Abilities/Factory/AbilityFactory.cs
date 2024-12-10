@@ -39,5 +39,13 @@ namespace Assets.Code.Gameplay.Features.Abilities.Factory
                 .With(x => x.isOrbitingMusrhoomAbility = true)
                 .PutOnCooldown();
         }
+
+        public GameEntity CreateGarlicAuraAbility()
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifiers.Next())
+                .AddAbilityId(Configs.AbilityId.GarlicAura)
+                .With(x => x.isGarlicAuraAbility = true);
+        }
     }
 }

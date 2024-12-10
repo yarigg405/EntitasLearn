@@ -8,6 +8,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Configs
     {
         None = 0,
         VegerableBolt = 1,
-        OrbitingMushroom = 2,
+        GarlicAura = 2,
+        OrbitingMushroom = 3,
     }
 }

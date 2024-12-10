@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 494b9272318d00d4c992fcd03411467d, type: 3}
-  m_Name: OrbitingMushroomConfig
+  m_Name: GarlicAuraConfig
   m_EditorClassIdentifier: 
-  <AbilityId>k__BackingField: 3
+  <AbilityId>k__BackingField: 2
   <AbilityLevels>k__BackingField:
-  - CoolDown: 5
-    ViewPrefab: {fileID: 397454818691177344, guid: 7fd76ec687fd94a4dafab8518909dcda, type: 3}
-    EffectSetups:
-    - EffectTypeId: 1
-      Value: 1
-    StatusSetups: []
+  - CoolDown: 0
+    ViewPrefab: {fileID: 5349946337836211371, guid: 1fb7c5c3cf18342469886378a5cedc50, type: 3}
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 2
+      Value: -2
+      Duration: 0.8
+      Period: 0
     ProjectileSetup:
-      ProjectileCount: 3
-      Speed: 2
+      ProjectileCount: 0
+      Speed: 0
       Pierce: 0
-      ContactRadius: 0.3
-      Lifetime: 3
-      OrbitRadius: 2
+      ContactRadius: 0
+      Lifetime: 0
+      OrbitRadius: 0
     AuraSetup:
-      Radius: 0
-      Interval: 0
+      Radius: 2
+      Interval: 2

@@ -21,7 +21,7 @@ namespace Assets.Code.Gameplay.Features.Statuses.Systems
         {
             foreach (var status in _statuses.GetEntities(_buffer))
             {
-
+                status.isDestructed = true;
             }
         }
     }
