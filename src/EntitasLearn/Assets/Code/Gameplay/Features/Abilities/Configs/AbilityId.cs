@@ -7,6 +7,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Configs
     public enum AbilityId
     {
         None = 0,
-        VegerableBolt,
+        VegerableBolt = 1,
+        OrbitingMushroom = 2,
     }
 }

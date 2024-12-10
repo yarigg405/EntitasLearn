@@ -24,6 +24,9 @@ namespace Assets.Code.Gameplay.Features.Effects.Factory
 
                 case EffectTypeId.Damage:
                     return CreateDamage(producerId, targetId, setup.Value);
+
+                case EffectTypeId.Heal:
+                    return CreateHeal(producerId, targetId, setup.Value);
             }
 
             throw new Exception($"Effect with type not found: {setup.EffectTypeId}");
@@ -35,6 +38,18 @@ namespace Assets.Code.Gameplay.Features.Effects.Factory
                   .AddId(_identifiers.Next())
                   .With(x => x.isEffect = true)
                   .With(x => x.isDamageEffect = true)
+                  .AddEffectValue(value)
+                  .AddProducerId(producerId)
+                  .AddTargetId(targetId)
+                  ;
+        }
+
+        private GameEntity CreateHeal(int producerId, int targetId, float value)
+        {
+            return CreateEntity.Empty()
+                  .AddId(_identifiers.Next())
+                  .With(x => x.isEffect = true)
+                  .With(x => x.isHealEffect = true)
                   .AddEffectValue(value)
                   .AddProducerId(producerId)
                   .AddTargetId(targetId)

@@ -1,4 +1,5 @@
-﻿using Assets.Code.Infrastructure.Identifiers;
+﻿using Assets.Code.Gameplay.Features.Abilities.Configs;
+using Assets.Code.Infrastructure.Identifiers;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.StaticData;
@@ -18,30 +19,50 @@ namespace Assets.Code.Gameplay.Features.Abilities.Armaments.Factory
             _staticDataService = staticDataService;
         }
 
+        private GameEntity CreateProjectileEntity(Vector3 spawnPos, AbilityLevel abilityLevel, ProjectileSetup setup)
+        {
+            return CreateEntity.Empty()
+                  .AddId(_identifiers.Next())
+                  .AddWorldPosition(spawnPos + Vector3.up)
+                  .With(x => x.isArmament = true)
+                  .AddViewPrefab(abilityLevel.ViewPrefab)
+                  .AddSpeed(setup.Speed)
+                  .With(x => x.AddEffectSetups(abilityLevel.EffectSetups), when: !abilityLevel.EffectSetups.IsNullOrEmpty())
+                  .With(x => x.AddStatusSetups(abilityLevel.StatusSetups), when: !abilityLevel.StatusSetups.IsNullOrEmpty())
+                  .AddRadius(setup.ContactRadius)
+                  .AddTargetsBuffer(new(16))
+                  .AddProcessedTargets(new(16))
+                  .With(x => x.AddTargetLimit(setup.Pierce), when: setup.Pierce > 0)
+                  .AddLayerMask(CollisionLayer.Enemy.AsMask())
+                  .With(x => x.isMovementAvailable = true)
+                  .With(x => x.isReadyToCollectTargets = true)
+                  .With(x => x.isCollectingTargetsContiniously = true)
+                  .With(x => x.isTurnedAlongDirection = true)
+                  .AddSelfDestructTimer(setup.Lifetime)
+                  ;
+        }
+
         public GameEntity CreateVegetableBolt(int level, Vector3 spawnPos)
         {
             var abilityLevel = _staticDataService.GetAbilityLevel(Configs.AbilityId.VegerableBolt, level);
             var setup = abilityLevel.ProjectileSetup;
 
-            return CreateEntity.Empty()
-                .AddId(_identifiers.Next())
-                .AddWorldPosition(spawnPos + Vector3.up)
-                .With(x => x.isArmament = true)
-                .AddViewPrefab(abilityLevel.ViewPrefab)
-                .AddSpeed(setup.Speed)
-                .AddEffectSetups(abilityLevel.EffectSetups)
-                .AddStatusSetups(abilityLevel.StatusSetups)
-                .AddRadius(setup.ContactRadius)
-                .AddTargetsBuffer(new(16))
-                .AddProcessedTargets(new(16))
-                .AddTargetLimit(setup.Pierce)
-                .AddLayerMask(CollisionLayer.Enemy.AsMask())
-                .With(x => x.isMovementAvailable = true)
-                .With(x => x.isReadyToCollectTargets = true)
-                .With(x => x.isCollectingTargetsContiniously = true)
-                .With(x => x.isTurnedAlongDirection = true)
-                .AddSelfDestructTimer(setup.Lifetime)
+            return CreateProjectileEntity(spawnPos, abilityLevel, setup)
+                .AddParentAbility(AbilityId.VegerableBolt)
                 ;
+        }
+
+        public GameEntity CreateMushroom(int level, Vector3 spawnPos, float phase)
+        {
+            var abilityLevel = _staticDataService.GetAbilityLevel(Configs.AbilityId.OrbitingMushroom, level);
+            var setup = abilityLevel.ProjectileSetup;
+
+            return CreateProjectileEntity(spawnPos, abilityLevel, setup)
+                .AddParentAbility(AbilityId.OrbitingMushroom)
+                .AddOrbitPhase(phase)
+                .AddOrbitRadius(setup.OrbitRadius)
+                ;
+            ;
         }
     }
 }

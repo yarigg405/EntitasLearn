@@ -14,6 +14,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                 .AllOf(
                 GameMatcher.TurnedAlongDirection,
                 GameMatcher.Moving,
+                GameMatcher.Direction,
                 GameMatcher.Transform
                 ));
         }
