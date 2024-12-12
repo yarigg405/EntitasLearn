@@ -39,6 +39,12 @@ namespace Assets.Code.Gameplay.Features.Statuses.Factory
                     }
                     break;
 
+                case StatusTypeId.ExplosiveEnchant:
+                    {
+                        status = CreateExplosiveEnchantStatus(setup, producerId, targetId);
+                    }
+                    break;
+
                 default:
                     throw new Exception($"Status with type not found: {setup.StatusTypeId}");
             }
@@ -91,6 +97,20 @@ namespace Assets.Code.Gameplay.Features.Statuses.Factory
                      .With(x => x.isStatus = true)
                      .With(x => x.isPoisonEnchant = true)
                      ;
+        }
+
+        private GameEntity CreateExplosiveEnchantStatus(StatusSetup setup, int producerId, int targetId)
+        {
+            return CreateEntity.Empty()
+                      .AddId(_identifiers.Next())
+                      .AddStatusTypeId(StatusTypeId.ExplosiveEnchant)
+                      .AddEnchantTypeId(Enchants.EnchantTypeId.ExplosiveArmaments)
+                      .AddEffectValue(setup.Value)
+                      .AddProducerId(producerId)
+                      .AddTargetId(targetId)
+                      .With(x => x.isStatus = true)
+                      .With(x => x.isExplosiveEnchant = true)
+                      ;
         }
     }
 }

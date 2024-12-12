@@ -31,14 +31,24 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
         void IInitializeSystem.Initialize()
         {
             var hero = _heroFactory.CreateHero(_levelDataProvider.StartPoint);
-            _abilityFactory.CreateVegetableBoltAbility(1);
-            //  _abilityFactory.CreateOrbitingMushroomAbility(1);
-           // _abilityFactory.CreateGarlicAuraAbility();
 
+            _abilityFactory.CreateVegetableBoltAbility(1);
+
+            //  _abilityFactory.CreateOrbitingMushroomAbility(1);
+
+            // _abilityFactory.CreateGarlicAuraAbility();
+
+            //_statusApplier.ApplyStatus(new StatusSetup()
+            //{
+            //    StatusTypeId = StatusTypeId.PoisonEnchant,
+            //    Duration = 10f
+            //}, 
+            //hero.Id, hero.Id); 
+            
             _statusApplier.ApplyStatus(new StatusSetup()
             {
-                StatusTypeId = StatusTypeId.PoisonEnchant,
-                Duration = 10f
+                StatusTypeId = StatusTypeId.ExplosiveEnchant,
+                Duration = 90f
             }, 
             hero.Id, hero.Id);
         }

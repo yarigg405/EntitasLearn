@@ -82,10 +82,27 @@ namespace Assets.Code.Gameplay.Features.Abilities.Armaments.Factory
                   .With(x => x.AddEffectSetups(abilityLevel.EffectSetups), when: !abilityLevel.EffectSetups.IsNullOrEmpty())
                   .With(x => x.AddStatusSetups(abilityLevel.StatusSetups), when: !abilityLevel.StatusSetups.IsNullOrEmpty())
                   .AddProducerId(producerId)
-                  .AddTargetsBuffer(new(16))                  
+                  .AddTargetsBuffer(new(16))
                   .With(x => x.isFollowingProducer = true)
                   .AddWorldPosition(Vector3.zero)
                   ;
+        }
+
+        public GameEntity CreateExplosion(int producerId, Vector3 spawnPos)
+        {
+            var config = _staticDataService.GetEnchantConfig(Enchants.EnchantTypeId.ExplosiveArmaments);
+            return CreateEntity.Empty()
+                  .AddId(_identifiers.Next())
+                  .AddLayerMask(CollisionLayer.Enemy.AsMask())
+                  .AddRadius(config.Radius)
+                  .AddTargetsBuffer(new(16))
+                  .With(x => x.AddEffectSetups(config.EffectSetups), when: !config.EffectSetups.IsNullOrEmpty())
+                  .With(x => x.AddStatusSetups(config.StatusSetups), when: !config.StatusSetups.IsNullOrEmpty())
+                  .AddViewPrefab(config.ViewPrefab)
+                  .AddProducerId(producerId)
+                  .AddWorldPosition(spawnPos)
+                  .With(x => x.isReadyToCollectTargets = true)
+                  .AddSelfDestructTimer(1);
         }
     }
 }
