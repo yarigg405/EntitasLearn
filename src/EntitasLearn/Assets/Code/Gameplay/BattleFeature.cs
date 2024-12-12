@@ -4,6 +4,7 @@ using Assets.Code.Gameplay.Features.Abilities.Armaments;
 using Assets.Code.Gameplay.Features.CharacterStats;
 using Assets.Code.Gameplay.Features.DamageApplication;
 using Assets.Code.Gameplay.Features.Effects;
+using Assets.Code.Gameplay.Features.Enchants;
 using Assets.Code.Gameplay.Features.Enemies;
 using Assets.Code.Gameplay.Features.Hero;
 using Assets.Code.Gameplay.Features.Lifetime;
@@ -34,6 +35,8 @@ namespace Assets.Code.Gameplay
 
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<EffectApplicationFeature>());
+
+            Add(systems.Create<EnchantFeature>());
             Add(systems.Create<EffectsFeature>());
             Add(systems.Create<StatusFeature>());
             Add(systems.Create<StatsFeature>());

@@ -45,49 +45,52 @@ public static class GameComponentsLookup {
     public const int HealEffect = 34;
     public const int ProducerId = 35;
     public const int TargetId = 36;
-    public const int Enemy = 37;
-    public const int EnemyAnimator = 38;
-    public const int EnemyTypeId = 39;
-    public const int SpawnTimer = 40;
-    public const int Hero = 41;
-    public const int HeroAnimator = 42;
-    public const int CurrentHP = 43;
-    public const int Dead = 44;
-    public const int MaxHP = 45;
-    public const int ProcessingDeath = 46;
-    public const int Affected = 47;
-    public const int Applied = 48;
-    public const int ApplierStatusLink = 49;
-    public const int Duration = 50;
-    public const int Freeze = 51;
-    public const int Period = 52;
-    public const int Poison = 53;
-    public const int Status = 54;
-    public const int StatusTypeId = 55;
-    public const int TimeLeft = 56;
-    public const int TimeSinceLastTick = 57;
-    public const int Unapplied = 58;
-    public const int CollectingTargetsContiniously = 59;
-    public const int CollectTargetsInterval = 60;
-    public const int CollectTargetsTimer = 61;
-    public const int LayerMask = 62;
-    public const int ProcessedTargets = 63;
-    public const int Radius = 64;
-    public const int ReadyToCollectTargets = 65;
-    public const int TargetsBuffer = 66;
-    public const int AxisInput = 67;
-    public const int Input = 68;
-    public const int Active = 69;
-    public const int Damage = 70;
-    public const int DamageTakenAnimator = 71;
-    public const int EntityLink = 72;
-    public const int Id = 73;
-    public const int Rigidbody = 74;
-    public const int StatusVisuals = 75;
-    public const int Transform = 76;
-    public const int WorldPosition = 77;
+    public const int EnchantTypeId = 37;
+    public const int EnchantVisuals = 38;
+    public const int PoisonEnchant = 39;
+    public const int Enemy = 40;
+    public const int EnemyAnimator = 41;
+    public const int EnemyTypeId = 42;
+    public const int SpawnTimer = 43;
+    public const int Hero = 44;
+    public const int HeroAnimator = 45;
+    public const int CurrentHP = 46;
+    public const int Dead = 47;
+    public const int MaxHP = 48;
+    public const int ProcessingDeath = 49;
+    public const int Affected = 50;
+    public const int Applied = 51;
+    public const int ApplierStatusLink = 52;
+    public const int Duration = 53;
+    public const int Freeze = 54;
+    public const int Period = 55;
+    public const int Poison = 56;
+    public const int Status = 57;
+    public const int StatusTypeId = 58;
+    public const int TimeLeft = 59;
+    public const int TimeSinceLastTick = 60;
+    public const int Unapplied = 61;
+    public const int CollectingTargetsContiniously = 62;
+    public const int CollectTargetsInterval = 63;
+    public const int CollectTargetsTimer = 64;
+    public const int LayerMask = 65;
+    public const int ProcessedTargets = 66;
+    public const int Radius = 67;
+    public const int ReadyToCollectTargets = 68;
+    public const int TargetsBuffer = 69;
+    public const int AxisInput = 70;
+    public const int Input = 71;
+    public const int Active = 72;
+    public const int Damage = 73;
+    public const int DamageTakenAnimator = 74;
+    public const int EntityLink = 75;
+    public const int Id = 76;
+    public const int Rigidbody = 77;
+    public const int StatusVisuals = 78;
+    public const int Transform = 79;
+    public const int WorldPosition = 80;
 
-    public const int TotalComponents = 78;
+    public const int TotalComponents = 81;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -127,6 +130,9 @@ public static class GameComponentsLookup {
         "HealEffect",
         "ProducerId",
         "TargetId",
+        "EnchantTypeId",
+        "EnchantVisuals",
+        "PoisonEnchant",
         "Enemy",
         "EnemyAnimator",
         "EnemyTypeId",
@@ -208,6 +214,9 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Effects.HealEffect),
         typeof(Assets.Code.Gameplay.Features.Effects.ProducerId),
         typeof(Assets.Code.Gameplay.Features.Effects.TargetId),
+        typeof(Assets.Code.Gameplay.Features.Enchants.EnchantTypeIdComponent),
+        typeof(Assets.Code.Gameplay.Features.Enchants.EnchantVisualsComponent),
+        typeof(Assets.Code.Gameplay.Features.Enchants.PoisonEnchant),
         typeof(Assets.Code.Gameplay.Features.Enemies.Enemy),
         typeof(Assets.Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Assets.Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),

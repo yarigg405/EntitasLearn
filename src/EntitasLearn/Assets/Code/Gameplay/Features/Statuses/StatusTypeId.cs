@@ -6,8 +6,9 @@ namespace Assets.Code.Gameplay.Features.Statuses
     [Serializable]
     public enum StatusTypeId
     {
-        None,
-        Poison,
-        Freeze,
+        None = 0,
+        Poison = 1,
+        Freeze = 2,
+        PoisonEnchant = 3,
     }
 }
