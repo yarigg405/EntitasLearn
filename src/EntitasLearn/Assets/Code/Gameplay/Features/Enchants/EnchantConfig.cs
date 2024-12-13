@@ -16,5 +16,6 @@ namespace Assets.Code.Gameplay.Features.Enchants
 
         public float Radius;
         public EntityBehaviour ViewPrefab;
+        public Sprite Icon;
     }
 }

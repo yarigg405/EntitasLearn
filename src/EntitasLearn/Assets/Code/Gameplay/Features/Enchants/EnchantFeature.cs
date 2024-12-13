@@ -11,6 +11,8 @@ namespace Assets.Code.Gameplay.Features.Enchants
             Add(systems.Create<PoisonEnchantSystem>());
             Add(systems.Create<ExplosiveEnchantSystem>());
 
+            Add(systems.Create<AddEnchantIconToHolderSystem>());
+
             Add(systems.Create<ApplyPoisonEnchantVisualsSystem>());
         }
     }

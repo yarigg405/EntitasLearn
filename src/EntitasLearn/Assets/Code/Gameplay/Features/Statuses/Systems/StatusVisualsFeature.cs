@@ -1,4 +1,5 @@
-﻿using Assets.Code.Gameplay.Features.Statuses.Systems.StatusVisuals;
+﻿using Assets.Code.Gameplay.Features.Enchants.Systems;
+using Assets.Code.Gameplay.Features.Statuses.Systems.StatusVisuals;
 using Code.Infrastructure.Systems;
 
 
@@ -13,6 +14,8 @@ namespace Assets.Code.Gameplay.Features.Statuses.Systems
 
             Add(systems.Create<ApplyFreezeVisualsSystem>());
             Add(systems.Create<UnapplyFreezeVisualsSystem>());
+
+            Add(systems.Create<RemoveUnappliedEnchantsIconFromHolder>());
         }
     }
 }

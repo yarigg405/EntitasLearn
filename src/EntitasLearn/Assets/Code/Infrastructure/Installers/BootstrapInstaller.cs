@@ -4,6 +4,7 @@ using Assets.Code.Gameplay.Common.Physics;
 using Assets.Code.Gameplay.Features.Abilities.Armaments.Factory;
 using Assets.Code.Gameplay.Features.Abilities.Factory;
 using Assets.Code.Gameplay.Features.Effects.Factory;
+using Assets.Code.Gameplay.Features.Enchants.UiFactories;
 using Assets.Code.Gameplay.Features.Enemies.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
 using Assets.Code.Gameplay.Features.Loot.Factory;
@@ -31,11 +32,14 @@ namespace Code.Infrastructure.Installers
             BindInfrastructureServices();
             BindCommonServices();
             BindFactories();
+            BindUiFactories();
             BindContexts();
             BindGameplayServices();
             BindCameraProvider();
             BindCustomIndicies();
         }
+
+
 
         private void BindContexts()
         {
@@ -69,6 +73,11 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<StatusFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LootFactory>().AsSingle();
+        }
+
+        private void BindUiFactories()
+        {
+            Container.BindInterfacesAndSelfTo<EnchantUiFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()

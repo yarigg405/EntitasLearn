@@ -19,3 +19,4 @@ MonoBehaviour:
   StatusSetups: []
   Radius: 7
   ViewPrefab: {fileID: 5349946337836211371, guid: 979cb1ed1c84cbf4b972388d712c9b35, type: 3}
+  Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
