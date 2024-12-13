@@ -59,40 +59,46 @@ public static class GameComponentsLookup {
     public const int Dead = 48;
     public const int MaxHP = 49;
     public const int ProcessingDeath = 50;
-    public const int Affected = 51;
-    public const int Applied = 52;
-    public const int ApplierStatusLink = 53;
-    public const int Duration = 54;
-    public const int Freeze = 55;
-    public const int Period = 56;
-    public const int Poison = 57;
-    public const int Status = 58;
-    public const int StatusTypeId = 59;
-    public const int TimeLeft = 60;
-    public const int TimeSinceLastTick = 61;
-    public const int Unapplied = 62;
-    public const int CollectingTargetsContiniously = 63;
-    public const int CollectTargetsInterval = 64;
-    public const int CollectTargetsTimer = 65;
-    public const int LayerMask = 66;
-    public const int ProcessedTargets = 67;
-    public const int Radius = 68;
-    public const int Reached = 69;
-    public const int ReadyToCollectTargets = 70;
-    public const int TargetsBuffer = 71;
-    public const int AxisInput = 72;
-    public const int Input = 73;
-    public const int Active = 74;
-    public const int Damage = 75;
-    public const int DamageTakenAnimator = 76;
-    public const int EntityLink = 77;
-    public const int Id = 78;
-    public const int Rigidbody = 79;
-    public const int StatusVisuals = 80;
-    public const int Transform = 81;
-    public const int WorldPosition = 82;
+    public const int Collected = 51;
+    public const int Experience = 52;
+    public const int LootTypeId = 53;
+    public const int PickupRadius = 54;
+    public const int Pullable = 55;
+    public const int Pulling = 56;
+    public const int Affected = 57;
+    public const int Applied = 58;
+    public const int ApplierStatusLink = 59;
+    public const int Duration = 60;
+    public const int Freeze = 61;
+    public const int Period = 62;
+    public const int Poison = 63;
+    public const int Status = 64;
+    public const int StatusTypeId = 65;
+    public const int TimeLeft = 66;
+    public const int TimeSinceLastTick = 67;
+    public const int Unapplied = 68;
+    public const int CollectingTargetsContiniously = 69;
+    public const int CollectTargetsInterval = 70;
+    public const int CollectTargetsTimer = 71;
+    public const int LayerMask = 72;
+    public const int ProcessedTargets = 73;
+    public const int Radius = 74;
+    public const int Reached = 75;
+    public const int ReadyToCollectTargets = 76;
+    public const int TargetsBuffer = 77;
+    public const int AxisInput = 78;
+    public const int Input = 79;
+    public const int Active = 80;
+    public const int Damage = 81;
+    public const int DamageTakenAnimator = 82;
+    public const int EntityLink = 83;
+    public const int Id = 84;
+    public const int Rigidbody = 85;
+    public const int StatusVisuals = 86;
+    public const int Transform = 87;
+    public const int WorldPosition = 88;
 
-    public const int TotalComponents = 83;
+    public const int TotalComponents = 89;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -146,6 +152,12 @@ public static class GameComponentsLookup {
         "Dead",
         "MaxHP",
         "ProcessingDeath",
+        "Collected",
+        "Experience",
+        "LootTypeId",
+        "PickupRadius",
+        "Pullable",
+        "Pulling",
         "Affected",
         "Applied",
         "ApplierStatusLink",
@@ -232,6 +244,12 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Lifetime.Dead),
         typeof(Assets.Code.Gameplay.Features.Lifetime.MaxHP),
         typeof(Assets.Code.Gameplay.Features.Lifetime.ProcessingDeath),
+        typeof(Assets.Code.Gameplay.Features.Loot.Collected),
+        typeof(Assets.Code.Gameplay.Features.Loot.Experience),
+        typeof(Assets.Code.Gameplay.Features.Loot.LootTypeIdComponent),
+        typeof(Assets.Code.Gameplay.Features.Loot.PickupRadius),
+        typeof(Assets.Code.Gameplay.Features.Loot.Pullable),
+        typeof(Assets.Code.Gameplay.Features.Loot.Pulling),
         typeof(Assets.Code.Gameplay.Features.Statuses.Affected),
         typeof(Assets.Code.Gameplay.Features.Statuses.Applied),
         typeof(Assets.Code.Gameplay.Features.Statuses.ApplierStatusLink),

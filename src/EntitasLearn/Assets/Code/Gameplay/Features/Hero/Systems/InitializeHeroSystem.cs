@@ -45,12 +45,12 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
             //}, 
             //hero.Id, hero.Id); 
             
-            _statusApplier.ApplyStatus(new StatusSetup()
-            {
-                StatusTypeId = StatusTypeId.ExplosiveEnchant,
-                Duration = 90f
-            }, 
-            hero.Id, hero.Id);
+            //_statusApplier.ApplyStatus(new StatusSetup()
+            //{
+            //    StatusTypeId = StatusTypeId.ExplosiveEnchant,
+            //    Duration = 90f
+            //}, 
+            //hero.Id, hero.Id);
         }
     }
 }

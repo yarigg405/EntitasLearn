@@ -6,7 +6,7 @@ namespace Code.Common.Extensions
   {
     Hero = 6,
     Enemy = 7,
-    Collectable = 9,
+    Collectable = 8,
     Clicker = 10,
   }
   

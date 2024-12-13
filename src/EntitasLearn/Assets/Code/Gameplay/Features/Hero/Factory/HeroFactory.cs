@@ -33,6 +33,8 @@ namespace Assets.Code.Gameplay.Features.Hero.Factory
                   .AddSpeed(baseStats[Stats.Speed])
                   .AddCurrentHP(baseStats[Stats.MaxHp])
                   .AddMaxHP(baseStats[Stats.MaxHp])
+                  .AddExperience(0)
+                  .AddPickupRadius(1)
                   .With(x => x.isHero = true)
                   .With(x => x.isTurnedAlongDirection = true)
                   .With(x => x.isMovementAvailable = true)

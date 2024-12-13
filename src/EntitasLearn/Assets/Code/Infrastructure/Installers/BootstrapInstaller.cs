@@ -6,6 +6,7 @@ using Assets.Code.Gameplay.Features.Abilities.Factory;
 using Assets.Code.Gameplay.Features.Effects.Factory;
 using Assets.Code.Gameplay.Features.Enemies.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
+using Assets.Code.Gameplay.Features.Loot.Factory;
 using Assets.Code.Gameplay.Features.Statuses.Applier;
 using Assets.Code.Gameplay.Features.Statuses.Factory;
 using Assets.Code.Infrastructure.Identifiers;
@@ -67,6 +68,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<AbilityFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<StatusFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LootFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()
