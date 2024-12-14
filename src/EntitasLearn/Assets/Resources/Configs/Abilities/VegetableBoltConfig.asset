@@ -30,3 +30,113 @@ MonoBehaviour:
     AuraSetup:
       Radius: 0
       Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 1
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 2
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 4
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 3
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 5
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 6
+  - CoolDown: 1
+    ViewPrefab: {fileID: 397454818691177344, guid: 189a9c443cd387545bfc15c4921f8713, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 8
+      Pierce: 1
+      ContactRadius: 0.3
+      Lifetime: 2
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 21300000, guid: 29da112e5c7ab7849b7de1249336e25c, type: 3}
+    Description: Vegetable 7

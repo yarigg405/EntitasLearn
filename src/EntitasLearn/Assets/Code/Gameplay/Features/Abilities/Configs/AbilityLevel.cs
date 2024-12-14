@@ -22,5 +22,9 @@ namespace Assets.Code.Gameplay.Features.Abilities.Configs
 
         [Space]
         public AuraSetup AuraSetup;
+
+        public Sprite Icon;
+
+        public string Description;
     }
 }

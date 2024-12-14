@@ -12,5 +12,7 @@ namespace Assets.Code.Gameplay.Features.Abilities
         [Game] public class VegetableBoltAbitily : IComponent { }
         [Game] public class OrbitingMusrhoomAbility : IComponent { }
         [Game] public class GarlicAuraAbility : IComponent { }
+        [Game] public class UpgradeRequest : IComponent { }
+        [Game] public class RecreatedOnUpgrade : IComponent { }
     }
 }

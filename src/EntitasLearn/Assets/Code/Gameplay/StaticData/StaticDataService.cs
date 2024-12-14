@@ -1,8 +1,10 @@
 ﻿using Assets.Code.Gameplay.Features.Abilities.Configs;
 using Assets.Code.Gameplay.Features.Enchants;
+using Assets.Code.Gameplay.Features.LevelUp;
 using Assets.Code.Gameplay.Features.Loot;
 using Assets.Code.Gameplay.Features.Loot.Configs;
-using DG.Tweening;
+using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Configs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,13 @@ using UnityEngine;
 
 namespace Code.Gameplay.StaticData
 {
-    internal class StaticDataService
+    public class StaticDataService
     {
         private Dictionary<AbilityId, AbilityConfig> _abilities;
         private Dictionary<EnchantTypeId, EnchantConfig> _enchants;
         private Dictionary<LootTypeId, LootConfig> _loot;
+        private Dictionary<WindowId, GameObject> _windows;
+        private LevelUpConfig _levelup;
 
         public StaticDataService()
         {
@@ -26,6 +30,8 @@ namespace Code.Gameplay.StaticData
             LoadAbilities();
             LoadEnchants();
             LoadLoot();
+            LoadWindows();
+            LoadLevelUpRules();
         }
 
         private void LoadAbilities()
@@ -46,7 +52,20 @@ namespace Code.Gameplay.StaticData
                .LoadAll<LootConfig>("Configs/Loot")
                .ToDictionary(x => x.LootTypeId, x => x);
         }
+        private void LoadWindows()
+        {
+            _windows = Resources
+                .Load<WindowsConfig>("Configs/Windows/windowConfig")
+                .WindowConfigs
+                .ToDictionary(x => x.Id, x => x.Prefab);
+        }
 
+        private void LoadLevelUpRules()
+        {
+            _levelup = Resources
+               .Load<LevelUpConfig>("Configs/LevelUp/levelUpConfig");
+
+        }
 
         internal AbilityConfig GetAbilityConfig(AbilityId id)
         {
@@ -86,6 +105,22 @@ namespace Code.Gameplay.StaticData
             }
 
             throw new System.Exception($"Loot with id not found: {id}");
+        }
+
+        internal GameObject GetWindowPrefab(WindowId id)
+        {
+            if (_windows.TryGetValue(id, out var config))
+            {
+                return config;
+            }
+
+            throw new System.Exception($"Window with id not found: {id}");
+        }
+
+        public int MaxLevel() => _levelup.MaxLevel;
+        public float GetExperienceForLevel(int level)
+        {
+            return _levelup.ExperienceForLevels[level];
         }
     }
 }

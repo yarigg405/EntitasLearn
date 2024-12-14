@@ -7,7 +7,7 @@ using Code.Gameplay.StaticData;
 
 namespace Assets.Code.Gameplay.Features.Abilities.Factory
 {
-    internal sealed class AbilityFactory
+    public sealed class AbilityFactory
     {
         private readonly IIdentifierService _identifiers;
         private readonly StaticDataService _staticDataService;
@@ -26,6 +26,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Factory
                 .AddAbilityId(Configs.AbilityId.VegerableBolt)
                 .AddCooldown(abilityLevel.CoolDown)
                 .With(x => x.isVegetableBoltAbitily = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
 
@@ -37,6 +38,7 @@ namespace Assets.Code.Gameplay.Features.Abilities.Factory
                 .AddAbilityId(Configs.AbilityId.OrbitingMushroom)
                 .AddCooldown(abilityLevel.CoolDown)
                 .With(x => x.isOrbitingMusrhoomAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
 
@@ -45,7 +47,8 @@ namespace Assets.Code.Gameplay.Features.Abilities.Factory
             return CreateEntity.Empty()
                 .AddId(_identifiers.Next())
                 .AddAbilityId(Configs.AbilityId.GarlicAura)
-                .With(x => x.isGarlicAuraAbility = true);
+                .With(x => x.isGarlicAuraAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true);
         }
     }
 }

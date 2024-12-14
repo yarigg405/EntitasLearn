@@ -32,3 +32,65 @@ MonoBehaviour:
     AuraSetup:
       Radius: 2
       Interval: 2
+    Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Garlic 1
+  - CoolDown: 0
+    ViewPrefab: {fileID: 5349946337836211371, guid: 1fb7c5c3cf18342469886378a5cedc50, type: 3}
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 2
+      Value: -2
+      Duration: 0.8
+      Period: 0
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 0
+      Pierce: 0
+      ContactRadius: 0
+      Lifetime: 0
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 2
+      Interval: 2
+    Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Garlic 2
+  - CoolDown: 0
+    ViewPrefab: {fileID: 5349946337836211371, guid: 1fb7c5c3cf18342469886378a5cedc50, type: 3}
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 2
+      Value: -2
+      Duration: 0.8
+      Period: 0
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 0
+      Pierce: 0
+      ContactRadius: 0
+      Lifetime: 0
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 2
+      Interval: 2
+    Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Garlic 3
+  - CoolDown: 0
+    ViewPrefab: {fileID: 5349946337836211371, guid: 1fb7c5c3cf18342469886378a5cedc50, type: 3}
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 2
+      Value: -2
+      Duration: 0.8
+      Period: 0
+    ProjectileSetup:
+      ProjectileCount: 0
+      Speed: 0
+      Pierce: 0
+      ContactRadius: 0
+      Lifetime: 0
+      OrbitRadius: 0
+    AuraSetup:
+      Radius: 2
+      Interval: 2
+    Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Garlic 4

@@ -7,16 +7,21 @@ using Assets.Code.Gameplay.Features.Effects.Factory;
 using Assets.Code.Gameplay.Features.Enchants.UiFactories;
 using Assets.Code.Gameplay.Features.Enemies.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
+using Assets.Code.Gameplay.Features.LevelUp.Services;
+using Assets.Code.Gameplay.Features.LevelUp.Windows;
 using Assets.Code.Gameplay.Features.Loot.Factory;
 using Assets.Code.Gameplay.Features.Statuses.Applier;
 using Assets.Code.Gameplay.Features.Statuses.Factory;
 using Assets.Code.Infrastructure.Identifiers;
 using Assets.Code.Infrastructure.View.Factory;
 using Code.Gameplay.Cameras.Provider;
+using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Systems;
 using System;
@@ -33,6 +38,7 @@ namespace Code.Infrastructure.Installers
             BindCommonServices();
             BindFactories();
             BindUiFactories();
+            BindUiServices();
             BindContexts();
             BindGameplayServices();
             BindCameraProvider();
@@ -59,6 +65,8 @@ namespace Code.Infrastructure.Installers
         {
             Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<StatusApplier>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelUpService>().AsSingle();
+            Container.Bind<IAbilityUpgradeService>().To<AbilityUpgradeService>().AsSingle();
         }
 
 
@@ -78,6 +86,8 @@ namespace Code.Infrastructure.Installers
         private void BindUiFactories()
         {
             Container.BindInterfacesAndSelfTo<EnchantUiFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityUiFactory>().AsSingle();
+            Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()
@@ -91,12 +101,18 @@ namespace Code.Infrastructure.Installers
             Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
             Container.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
             Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
+            Container.Bind<IRandomService>().To<UnityRandomService>().AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
         }
 
         private void BindInputService()
         {
             Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
+        }
+
+        private void BindUiServices()
+        {
+            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
         }
 
         private void BindCustomIndicies()

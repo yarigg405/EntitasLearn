@@ -7,6 +7,7 @@ using Assets.Code.Gameplay.Features.Effects;
 using Assets.Code.Gameplay.Features.Enchants;
 using Assets.Code.Gameplay.Features.Enemies;
 using Assets.Code.Gameplay.Features.Hero;
+using Assets.Code.Gameplay.Features.LevelUp;
 using Assets.Code.Gameplay.Features.Lifetime;
 using Assets.Code.Gameplay.Features.Loot;
 using Assets.Code.Gameplay.Features.Movement;
@@ -35,6 +36,7 @@ namespace Assets.Code.Gameplay
             Add(systems.Create<DeathFeature>());
 
             Add(systems.Create<LootFeature>());
+            Add(systems.Create<LevelUpFeature>());
 
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<EffectApplicationFeature>());

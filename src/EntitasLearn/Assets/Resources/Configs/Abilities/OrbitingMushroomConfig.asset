@@ -30,3 +30,77 @@ MonoBehaviour:
     AuraSetup:
       Radius: 0
       Interval: 0
+    Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Mushroom 1
+  - CoolDown: 5
+    ViewPrefab: {fileID: 397454818691177344, guid: 7fd76ec687fd94a4dafab8518909dcda, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 3
+      Speed: 2
+      Pierce: 0
+      ContactRadius: 0.3
+      Lifetime: 3
+      OrbitRadius: 2
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Mushroom 2
+  - CoolDown: 5
+    ViewPrefab: {fileID: 397454818691177344, guid: 7fd76ec687fd94a4dafab8518909dcda, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 3
+      Speed: 2
+      Pierce: 0
+      ContactRadius: 0.3
+      Lifetime: 3
+      OrbitRadius: 2
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Mushroom 3
+  - CoolDown: 5
+    ViewPrefab: {fileID: 397454818691177344, guid: 7fd76ec687fd94a4dafab8518909dcda, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 3
+      Speed: 2
+      Pierce: 0
+      ContactRadius: 0.3
+      Lifetime: 3
+      OrbitRadius: 2
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Mushroom 4
+  - CoolDown: 5
+    ViewPrefab: {fileID: 397454818691177344, guid: 7fd76ec687fd94a4dafab8518909dcda, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
+    StatusSetups: []
+    ProjectileSetup:
+      ProjectileCount: 3
+      Speed: 2
+      Pierce: 0
+      ContactRadius: 0.3
+      Lifetime: 3
+      OrbitRadius: 2
+    AuraSetup:
+      Radius: 0
+      Interval: 0
+    Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Description: Mushroom 5

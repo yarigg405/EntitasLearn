@@ -1,7 +1,7 @@
 ﻿using Assets.Code.Gameplay.Features.Abilities.Factory;
 using Assets.Code.Gameplay.Features.Hero.Factory;
-using Assets.Code.Gameplay.Features.Statuses;
 using Assets.Code.Gameplay.Features.Statuses.Applier;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Levels;
 using Entitas;
 
@@ -12,27 +12,28 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
     {
         private readonly IHeroFactory _heroFactory;
         private readonly ILevelDataProvider _levelDataProvider;
-        private readonly AbilityFactory _abilityFactory;
         private readonly StatusApplier _statusApplier;
+        private readonly IAbilityUpgradeService _upgradeService;
 
         public InitializeHeroSystem(
             IHeroFactory heroFactory,
             ILevelDataProvider levelDataProvider,
             AbilityFactory abilityFactory,
-            StatusApplier statusApplier
+            StatusApplier statusApplier,
+            IAbilityUpgradeService upgradeService
             )
         {
             _heroFactory = heroFactory;
             _levelDataProvider = levelDataProvider;
-            _abilityFactory = abilityFactory;
             _statusApplier = statusApplier;
+            _upgradeService = upgradeService;
         }
 
         void IInitializeSystem.Initialize()
         {
             var hero = _heroFactory.CreateHero(_levelDataProvider.StartPoint);
 
-            _abilityFactory.CreateVegetableBoltAbility(1);
+            _upgradeService.InitializeAbility(Abilities.Configs.AbilityId.VegerableBolt);
 
             //  _abilityFactory.CreateOrbitingMushroomAbility(1);
 

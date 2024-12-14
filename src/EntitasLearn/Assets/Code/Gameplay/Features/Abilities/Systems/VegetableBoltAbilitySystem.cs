@@ -7,6 +7,7 @@ using Entitas;
 using System.Collections.Generic;
 using Yrr.Utils;
 using UnityEngine;
+using Code.Gameplay.Features.Abilities.Upgrade;
 
 
 namespace Assets.Code.Gameplay.Features.Abilities.Systems
@@ -20,12 +21,17 @@ namespace Assets.Code.Gameplay.Features.Abilities.Systems
 
         private readonly StaticDataService _staticDataService;
         private readonly ArmamentsFactory _armamentsFactory;
+        private readonly IAbilityUpgradeService _abilityUpgradeService;
 
-        internal VegetableBoltAbilitySystem(GameContext game, StaticDataService staticDataService, ArmamentsFactory armamentsFactory)
+        internal VegetableBoltAbilitySystem(
+            GameContext game,
+            StaticDataService staticDataService,
+            ArmamentsFactory armamentsFactory,
+            IAbilityUpgradeService abilityUpgradeService)
         {
             _staticDataService = staticDataService;
             _armamentsFactory = armamentsFactory;
-
+            _abilityUpgradeService = abilityUpgradeService;
             _abilities = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.VegetableBoltAbitily,
                 GameMatcher.CooldownIsUp
@@ -48,13 +54,15 @@ namespace Assets.Code.Gameplay.Features.Abilities.Systems
                     if (_enemies.count < 1)
                         continue;
 
+                    int level = _abilityUpgradeService.GetAbilityLevel(AbilityId.VegerableBolt);
+
                     _armamentsFactory
-                        .CreateVegetableBolt(1, hero.Transform.position)
+                        .CreateVegetableBolt(level, hero.Transform.position)
                         .AddProducerId(hero.Id)
                         .ReplaceDirection(RandomEnemyDirection(hero.Transform))
                         .With(x => x.isMoving = true);
 
-                    ability.PutOnCooldown(_staticDataService.GetAbilityLevel(AbilityId.VegerableBolt, 1).CoolDown);
+                    ability.PutOnCooldown(_staticDataService.GetAbilityLevel(AbilityId.VegerableBolt, level).CoolDown);
                 }
         }
 
