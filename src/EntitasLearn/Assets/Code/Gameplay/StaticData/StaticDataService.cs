@@ -5,6 +5,7 @@ using Assets.Code.Gameplay.Features.Loot;
 using Assets.Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
+using Code.Meta.UI.Shop.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -121,6 +122,16 @@ namespace Code.Gameplay.StaticData
         public float GetExperienceForLevel(int level)
         {
             return _levelup.ExperienceForLevels[level];
+        }
+
+        internal ShopItemConfig GetShopItemConfig(ShopItemId shopItemId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IEnumerable<ShopItemConfig> GetShopItemConfigs()
+        {
+            throw new NotImplementedException();
         }
     }
 }
