@@ -7,15 +7,15 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
     internal sealed class SetHeroDirectionByInputSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _heroes;
-        private readonly IGroup<GameEntity> _inputs;
+        private readonly IGroup<InputEntity> _inputs;
 
-        public SetHeroDirectionByInputSystem(GameContext context)
+        public SetHeroDirectionByInputSystem(GameContext game, InputContext input)
         {
-            _heroes = context.GetGroup(GameMatcher.AllOf(
+            _heroes = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.Hero,
                 GameMatcher.MovementAvailable
                 ));
-            _inputs = context.GetGroup(GameMatcher.Input);
+            _inputs = input.GetGroup(InputMatcher.Input);
         }
 
         void IExecuteSystem.Execute()

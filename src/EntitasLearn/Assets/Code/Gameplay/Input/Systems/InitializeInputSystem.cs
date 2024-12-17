@@ -8,7 +8,7 @@ namespace Assets.Code.Gameplay.Input.Systems
     {
         void IInitializeSystem.Initialize()
         {
-            CreateEntity.Empty()
+            CreateInputEntity.Empty()
                  .isInput = true;
         }
     }

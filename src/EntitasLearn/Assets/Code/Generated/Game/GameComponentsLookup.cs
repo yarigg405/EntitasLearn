@@ -91,19 +91,17 @@ public static class GameComponentsLookup {
     public const int Reached = 80;
     public const int ReadyToCollectTargets = 81;
     public const int TargetsBuffer = 82;
-    public const int AxisInput = 83;
-    public const int Input = 84;
-    public const int Active = 85;
-    public const int Damage = 86;
-    public const int DamageTakenAnimator = 87;
-    public const int EntityLink = 88;
-    public const int Id = 89;
-    public const int Rigidbody = 90;
-    public const int StatusVisuals = 91;
-    public const int Transform = 92;
-    public const int WorldPosition = 93;
+    public const int Active = 83;
+    public const int Damage = 84;
+    public const int DamageTakenAnimator = 85;
+    public const int EntityLink = 86;
+    public const int Id = 87;
+    public const int Rigidbody = 88;
+    public const int StatusVisuals = 89;
+    public const int Transform = 90;
+    public const int WorldPosition = 91;
 
-    public const int TotalComponents = 94;
+    public const int TotalComponents = 92;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -189,8 +187,6 @@ public static class GameComponentsLookup {
         "Reached",
         "ReadyToCollectTargets",
         "TargetsBuffer",
-        "AxisInput",
-        "Input",
         "Active",
         "Damage",
         "DamageTakenAnimator",
@@ -286,8 +282,6 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.TargetCollection.Reached),
         typeof(Assets.Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
         typeof(Assets.Code.Gameplay.Features.TargetCollection.TargetsBuffer),
-        typeof(Assets.Code.Gameplay.Input.AxisInput),
-        typeof(Assets.Code.Gameplay.Input.Input),
         typeof(EntitasLearn.Gameplay.Common.Active),
         typeof(EntitasLearn.Gameplay.Common.Damage),
         typeof(EntitasLearn.Gameplay.Common.DamageTakenAnimator),

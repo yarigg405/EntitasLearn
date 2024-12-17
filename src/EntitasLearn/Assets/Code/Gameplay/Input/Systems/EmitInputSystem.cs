@@ -9,12 +9,12 @@ namespace Assets.Code.Gameplay.Input.Systems
     {
         private readonly IInputService _InputService;
 
-        private readonly IGroup<GameEntity> _inputs;
+        private readonly IGroup<InputEntity> _inputs;
 
-        public EmitInputSystem(GameContext context, IInputService inputService)
+        public EmitInputSystem(InputContext context, IInputService inputService)
         {
             _InputService = inputService;
-            _inputs = context.GetGroup(GameMatcher.Input);
+            _inputs = context.GetGroup(InputMatcher.Input);
         }
 
         void IExecuteSystem.Execute()

@@ -8,15 +8,18 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int AxisInput = 0;
+    public const int Input = 1;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-
+        "AxisInput",
+        "Input"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(Assets.Code.Gameplay.Input.AxisInput),
+        typeof(Assets.Code.Gameplay.Input.Input)
     };
 }
