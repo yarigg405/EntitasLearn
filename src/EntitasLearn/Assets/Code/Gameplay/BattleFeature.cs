@@ -29,14 +29,14 @@ namespace Assets.Code.Gameplay
 
             Add(systems.Create<HeroFeature>());
             Add(systems.Create<EnemyFeature>());
-
-            Add(systems.Create<MovementFeature>());
-            Add(systems.Create<AbilitiesFeature>());
-            Add(systems.Create<ArmamentFeature>());
             Add(systems.Create<DeathFeature>());
 
             Add(systems.Create<LootFeature>());
             Add(systems.Create<LevelUpFeature>());
+
+            Add(systems.Create<MovementFeature>());
+            Add(systems.Create<AbilitiesFeature>());
+            Add(systems.Create<ArmamentFeature>());             
 
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<EffectApplicationFeature>());

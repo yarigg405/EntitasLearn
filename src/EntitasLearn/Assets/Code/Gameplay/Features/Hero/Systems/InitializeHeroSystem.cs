@@ -31,7 +31,7 @@ namespace Assets.Code.Gameplay.Features.Hero.Systems
 
         void IInitializeSystem.Initialize()
         {
-            var hero = _heroFactory.CreateHero(_levelDataProvider.StartPoint);
+            //var hero = _heroFactory.CreateHero(_levelDataProvider.StartPoint);
 
             _upgradeService.InitializeAbility(Abilities.Configs.AbilityId.VegerableBolt);
 

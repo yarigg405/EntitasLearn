@@ -5,7 +5,6 @@ using Assets.Code.Gameplay.Features.Loot;
 using Assets.Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,7 +12,7 @@ using UnityEngine;
 
 namespace Code.Gameplay.StaticData
 {
-    public class StaticDataService
+    public class StaticDataService : IStaticDataService
     {
         private Dictionary<AbilityId, AbilityConfig> _abilities;
         private Dictionary<EnchantTypeId, EnchantConfig> _enchants;

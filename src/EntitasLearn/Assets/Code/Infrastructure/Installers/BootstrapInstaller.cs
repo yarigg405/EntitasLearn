@@ -23,34 +23,85 @@ using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
+using Code.Infrastructure.Loading;
+using Code.Infrastructure.States.Factory;
+using Code.Infrastructure.States.GameStates;
+using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
-using System;
+using Code.Progress.Provider;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
 {
-    public class BootstrapInstaller : MonoInstaller, IInitializable
+    public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
     {
         public override void InstallBindings()
         {
             BindInputService();
             BindInfrastructureServices();
+            BindAssetManagementServices();
             BindCommonServices();
-            BindFactories();
-            BindUiFactories();
-            BindUiServices();
+            BindSystemFactory();
+            BindUIFactories();
             BindContexts();
             BindGameplayServices();
+            BindUIServices();
             BindCameraProvider();
-            BindCustomIndicies();
+            BindGameplayFactories();
+            BindEntityIndices();
+            BindStateMachine();
+            BindStateFactory();
+            BindGameStates();
+            BindProgressServices();
         }
 
+        private void BindProgressServices()
+        {
+            Container.Bind<IProgressProvider>().To<ProgressProvider>().AsSingle();
+        }
 
+        private void BindEntityIndices()
+        {
+            Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
+        }
+
+        private void BindGameplayFactories()
+        {
+            Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
+            Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
+            Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ArmamentsFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StatusFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LootFactory>().AsSingle();
+        }
+
+        private void BindUIServices()
+        {
+            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+        }
+
+        private void BindUIFactories()
+        {
+            Container.BindInterfacesAndSelfTo<EnchantUiFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityUiFactory>().AsSingle();
+            Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
+        }
+
+        private void BindSystemFactory()
+        {
+            Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
+        }
+
+        private void BindAssetManagementServices()
+        {
+            Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
+        }
 
         private void BindContexts()
         {
             Container.Bind<Contexts>().FromInstance(Contexts.sharedInstance).AsSingle();
-            Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
             Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
             Container.Bind<InputContext>().FromInstance(Contexts.sharedInstance.input).AsSingle();
             Container.Bind<MetaContext>().FromInstance(Contexts.sharedInstance.meta).AsSingle();
@@ -69,25 +120,25 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IAbilityUpgradeService>().To<AbilityUpgradeService>().AsSingle();
         }
 
-
-        private void BindFactories()
+        private void BindStateMachine()
         {
-            Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
-            Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
-            Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
-            Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ArmamentsFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AbilityFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<StatusFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<LootFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
         }
 
-        private void BindUiFactories()
+        private void BindStateFactory()
         {
-            Container.BindInterfacesAndSelfTo<EnchantUiFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AbilityUiFactory>().AsSingle();
-            Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StateFactory>().AsSingle();
+        }
+
+        private void BindGameStates()
+        {
+            Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InitializeProgressState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingHomeScreenState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
         }
 
         private void BindInfrastructureServices()
@@ -103,6 +154,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
             Container.Bind<IRandomService>().To<UnityRandomService>().AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
+            Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
         }
 
         private void BindInputService()
@@ -110,19 +162,9 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
         }
 
-        private void BindUiServices()
-        {
-            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
-        }
-
-        private void BindCustomIndicies()
-        {
-            Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
-        }
-
         void IInitializable.Initialize()
         {
-
+            Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
         }
     }
 }
