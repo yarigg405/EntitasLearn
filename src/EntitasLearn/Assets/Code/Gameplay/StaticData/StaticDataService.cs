@@ -3,6 +3,7 @@ using Assets.Code.Gameplay.Features.Enchants;
 using Assets.Code.Gameplay.Features.LevelUp;
 using Assets.Code.Gameplay.Features.Loot;
 using Assets.Code.Gameplay.Features.Loot.Configs;
+using Assets.Code.Meta.Features.AfkGain.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Code.Gameplay.StaticData
         private Dictionary<LootTypeId, LootConfig> _loot;
         private Dictionary<WindowId, GameObject> _windows;
         private LevelUpConfig _levelup;
+        private AfkGainConfig _afkGainConfig;
 
         public StaticDataService()
         {
@@ -31,6 +33,7 @@ namespace Code.Gameplay.StaticData
             LoadLoot();
             LoadWindows();
             LoadLevelUpRules();
+            LoadAfkGainConfigs();
         }
 
         private void LoadAbilities()
@@ -64,7 +67,16 @@ namespace Code.Gameplay.StaticData
             _levelup = Resources
                .Load<LevelUpConfig>("Configs/LevelUp/levelUpConfig");
 
+        }        
+
+        private void LoadAfkGainConfigs()
+        {
+            _afkGainConfig = Resources
+               .Load<AfkGainConfig>("Configs/AfkGainConfig");
+
         }
+
+
 
         internal AbilityConfig GetAbilityConfig(AbilityId id)
         {
@@ -121,5 +133,7 @@ namespace Code.Gameplay.StaticData
         {
             return _levelup.ExperienceForLevels[level];
         }
+
+        public AfkGainConfig AfkGain => _afkGainConfig;
     }
 }
