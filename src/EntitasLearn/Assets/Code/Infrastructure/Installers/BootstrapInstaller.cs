@@ -15,6 +15,7 @@ using Assets.Code.Gameplay.Features.Statuses.Factory;
 using Assets.Code.Infrastructure.Identifiers;
 using Assets.Code.Infrastructure.States.GameStates;
 using Assets.Code.Infrastructure.View.Factory;
+using Assets.Code.Progress.SaveLoad;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
@@ -59,6 +60,7 @@ namespace Code.Infrastructure.Installers
         private void BindProgressServices()
         {
             Container.Bind<IProgressProvider>().To<ProgressProvider>().AsSingle();
+            Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
         }
 
         private void BindEntityIndices()
@@ -134,7 +136,7 @@ namespace Code.Infrastructure.Installers
         private void BindGameStates()
         {
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<InitializeProgressState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadProgressState>().AsSingle();
             Container.BindInterfacesAndSelfTo<ActualizeProgressState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadingHomeScreenState>().AsSingle();
             Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();

@@ -1,5 +1,6 @@
 ﻿using Assets.Code.Meta;
 using Assets.Code.Meta.Features.Simulation;
+using Assets.Code.Progress.SaveLoad;
 using Code.Common.Entity;
 using Code.Gameplay.Common.Time;
 using Code.Infrastructure.States.GameStates;
@@ -20,6 +21,7 @@ namespace Assets.Code.Infrastructure.States.GameStates
         private readonly ITimeService _time;
         private readonly IProgressProvider _progressProvider;
         private readonly ISystemFactory _systemFactory;
+        private readonly ISaveLoadService _saveLoadService;
         private ActualizationFeature _actualizationFeature;
 
         private TimeSpan TwoDays = TimeSpan.FromDays(2);
@@ -28,31 +30,25 @@ namespace Assets.Code.Infrastructure.States.GameStates
             IGameStateMachine stateMachine,
             IProgressProvider progressProvider,
             ISystemFactory systemFactory,
-            ITimeService time)
+            ITimeService time,
+            ISaveLoadService saveLoadService)
         {
             _stateMachine = stateMachine;
             _progressProvider = progressProvider;
             _systemFactory = systemFactory;
             _time = time;
+            _saveLoadService = saveLoadService;
         }
 
         public void Enter()
         {
             _actualizationFeature = _systemFactory.Create<ActualizationFeature>();
-            _progressProvider.ProgressData.LastSimulationTickTime = _time.UtcNow - TwoDays;
-
             ActualizeProgress(_progressProvider.ProgressData);
-
             _stateMachine.Enter<LoadingHomeScreenState>();
         }
 
         private void ActualizeProgress(ProgressData data)
         {
-            CreateMetaEntity.Empty()
-                .AddGoldGainBoost(1f)
-                .AddDuration((float)TimeSpan.FromDays(1).TotalSeconds)
-                ;
-
             _actualizationFeature.Initialize();
             DateTime until = GetLimitedUntilTime(data);
 
@@ -71,6 +67,7 @@ namespace Assets.Code.Infrastructure.States.GameStates
             }
 
             data.LastSimulationTickTime = _time.UtcNow;
+            _saveLoadService.SaveProgress();
         }
 
         private DateTime GetLimitedUntilTime(ProgressData data)

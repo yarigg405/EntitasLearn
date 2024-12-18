@@ -1,34 +1,29 @@
 using Assets.Code.Infrastructure.States.GameStates;
+using Assets.Code.Progress.SaveLoad;
 using Code.Common.Entity;
 using Code.Common.Extensions;
-using Code.Gameplay.Common.Time;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
-using Code.Progress.Data;
-using Code.Progress.Provider;
 
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class InitializeProgressState : IState
+    public class LoadProgressState : IState
     {
         private readonly IGameStateMachine _stateMachine;
-        private readonly IProgressProvider _progressProvider;
         private readonly StaticDataService _staticDataService;
-        private readonly ITimeService _time;
+        private readonly ISaveLoadService _saveLoadService;
 
-        public InitializeProgressState(
+
+        public LoadProgressState(
           IGameStateMachine stateMachine,
-          IProgressProvider progressProvider,
           StaticDataService staticDataService,
-          ITimeService timeService
-            )
+          ISaveLoadService saveLoadService)
         {
             _stateMachine = stateMachine;
-            _progressProvider = progressProvider;
             _staticDataService = staticDataService;
-            _time = timeService;
+            _saveLoadService = saveLoadService;
         }
 
         public void Enter()
@@ -40,15 +35,17 @@ namespace Code.Infrastructure.States.GameStates
 
         private void InitializeProgress()
         {
-            CreateNewProgress();
+            if (_saveLoadService.HasSavedProgress)
+                _saveLoadService.LoadProgress();
+            else
+            {
+                CreateNewProgress();
+            }
         }
 
         private void CreateNewProgress()
         {
-            _progressProvider.SetProgressData(new ProgressData()
-            {
-                LastSimulationTickTime = _time.UtcNow
-            });
+            _saveLoadService.CreateProgress();
 
             CreateMetaEntity.Empty()
                 .With(x => x.isStorage = true)
