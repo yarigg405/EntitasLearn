@@ -14,6 +14,9 @@ namespace Assets.Code.Meta
             Add(systems.Create<EmitTickSystem>(MetaConstants.SimulationTickSeconds));
 
             Add(systems.Create<SimulationFeature>());
+
+            Add(systems.Create<HomeUiFeature>());
+
             Add(systems.Create<PeriodicallySaveProgressSystem>(MetaConstants.SaveProgressPeriodSeconds));
 
             Add(systems.Create<CleanupTickSystem>());

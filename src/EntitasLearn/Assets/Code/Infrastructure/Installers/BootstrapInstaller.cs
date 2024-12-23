@@ -15,6 +15,10 @@ using Assets.Code.Gameplay.Features.Statuses.Factory;
 using Assets.Code.Infrastructure.Identifiers;
 using Assets.Code.Infrastructure.States.GameStates;
 using Assets.Code.Infrastructure.View.Factory;
+using Assets.Code.Meta.UI.GoldHolder.Service;
+using Assets.Code.Meta.UI.Shop.Service;
+using Assets.Code.Meta.UI.Shop.Systems;
+using Assets.Code.Meta.UI.Shop.UiFactory;
 using Assets.Code.Progress.SaveLoad;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Random;
@@ -78,11 +82,14 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<EffectFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<StatusFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LootFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ShopItemFactory>().AsSingle();
         }
 
         private void BindUIServices()
         {
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+            Container.Bind<IShopUiService>().To<ShopUiService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StorageUIService>().AsSingle();
         }
 
         private void BindUIFactories()
@@ -90,6 +97,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<EnchantUiFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityUiFactory>().AsSingle();
             Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
+            Container.Bind<IShopUiFactory>().To<ShopUiFactory>().AsSingle();
         }
 
         private void BindSystemFactory()

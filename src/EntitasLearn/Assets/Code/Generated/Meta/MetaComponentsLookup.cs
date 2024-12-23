@@ -15,8 +15,12 @@ public static class MetaComponentsLookup {
     public const int Gold = 4;
     public const int GoldPerSecond = 5;
     public const int Storage = 6;
+    public const int BuyRequest = 7;
+    public const int Purchased = 8;
+    public const int ShopItemId = 9;
+    public const int Id = 10;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -25,7 +29,11 @@ public static class MetaComponentsLookup {
         "Tick",
         "Gold",
         "GoldPerSecond",
-        "Storage"
+        "Storage",
+        "BuyRequest",
+        "Purchased",
+        "ShopItemId",
+        "Id"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -35,6 +43,10 @@ public static class MetaComponentsLookup {
         typeof(Assets.Code.Meta.Features.Simulation.Tick),
         typeof(Assets.Code.Meta.Features.Storage.Gold),
         typeof(Assets.Code.Meta.Features.Storage.GoldPerSecond),
-        typeof(Assets.Code.Meta.Features.Storage.Storage)
+        typeof(Assets.Code.Meta.Features.Storage.Storage),
+        typeof(Assets.Code.Meta.UI.Shop.BuyRequestComponent),
+        typeof(Assets.Code.Meta.UI.Shop.Purchased),
+        typeof(Assets.Code.Meta.UI.Shop.ShopItemIdComponent),
+        typeof(EntitasLearn.Gameplay.Common.Id)
     };
 }

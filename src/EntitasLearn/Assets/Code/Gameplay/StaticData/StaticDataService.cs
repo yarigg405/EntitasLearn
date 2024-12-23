@@ -4,8 +4,10 @@ using Assets.Code.Gameplay.Features.LevelUp;
 using Assets.Code.Gameplay.Features.Loot;
 using Assets.Code.Gameplay.Features.Loot.Configs;
 using Assets.Code.Meta.Features.AfkGain.Configs;
+using Assets.Code.Meta.UI.Shop.Items;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,6 +21,7 @@ namespace Code.Gameplay.StaticData
         private Dictionary<EnchantTypeId, EnchantConfig> _enchants;
         private Dictionary<LootTypeId, LootConfig> _loot;
         private Dictionary<WindowId, GameObject> _windows;
+        private List<ShopItemConfig> _shopItemConfigs;
         private LevelUpConfig _levelup;
         private AfkGainConfig _afkGainConfig;
 
@@ -34,6 +37,7 @@ namespace Code.Gameplay.StaticData
             LoadWindows();
             LoadLevelUpRules();
             LoadAfkGainConfigs();
+            LoadShopItems();
         }
 
         private void LoadAbilities()
@@ -67,13 +71,20 @@ namespace Code.Gameplay.StaticData
             _levelup = Resources
                .Load<LevelUpConfig>("Configs/LevelUp/levelUpConfig");
 
-        }        
+        }
 
         private void LoadAfkGainConfigs()
         {
             _afkGainConfig = Resources
                .Load<AfkGainConfig>("Configs/AfkGainConfig");
 
+        }
+
+        private void LoadShopItems()
+        {
+            _shopItemConfigs = Resources
+             .LoadAll<ShopItemConfig>("Configs/ShopItems")
+             .ToList();
         }
 
 
@@ -116,6 +127,16 @@ namespace Code.Gameplay.StaticData
             }
 
             throw new System.Exception($"Loot with id not found: {id}");
+        }
+
+        internal ShopItemConfig GetShopItemConfig(ShopItemId id)
+        {
+            return _shopItemConfigs.FirstOrDefault(x => x.ShopItemId == id);
+        }
+
+        internal List<ShopItemConfig> GetShopItemConfigs()
+        {
+            return _shopItemConfigs;
         }
 
         internal GameObject GetWindowPrefab(WindowId id)
