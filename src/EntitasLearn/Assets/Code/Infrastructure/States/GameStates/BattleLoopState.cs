@@ -1,12 +1,11 @@
 using Assets.Code.Gameplay;
-using Code.Infrastructure.States.StateInfrastructure;
+using Assets.Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.Systems;
-using System;
 
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class BattleLoopState : IState, IUpdateable
+    public class BattleLoopState : EndOfFrameExitState
     {
         private readonly ISystemFactory _systems;
         private readonly GameContext _game;
@@ -18,20 +17,21 @@ namespace Code.Infrastructure.States.GameStates
             _game = game;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             _battleFeature = _systems.Create<BattleFeature>();
             _battleFeature.Initialize();
         }
 
-        public void Update()
+        protected override void OnUpdate()
         {
+            base.OnUpdate();       
             _battleFeature.Execute();
             _battleFeature.Cleanup();
         }
 
-        public void Exit()
-        {
+        protected override void ExitOnEndFrame()
+        {          
             _battleFeature.DeactivateReactiveSystems();
             _battleFeature.ClearReactiveSystems();
 

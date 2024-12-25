@@ -1,13 +1,13 @@
+using Assets.Code.Infrastructure.States.GameStates;
 using Assets.Code.Meta;
 using Assets.Code.Meta.UI.GoldHolder.Service;
 using Assets.Code.Meta.UI.Shop.Service;
-using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
 
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class HomeScreenState : IState, IUpdateable
+    public class HomeScreenState : EndOfFrameExitState
     {
         private readonly ISystemFactory _systems;
         private readonly GameContext _game;
@@ -27,19 +27,21 @@ namespace Code.Infrastructure.States.GameStates
             _shopUiService = shopUiService;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             _homeScreenFeature = _systems.Create<HomeScreenFeature>();
             _homeScreenFeature.Initialize();
         }
 
-        public void Update()
+        protected override void OnUpdate()       
         {
+            base.OnUpdate();
             _homeScreenFeature.Execute();
             _homeScreenFeature.Cleanup();
         }
 
-        public void Exit()
+
+        protected override void ExitOnEndFrame()
         {
             _shopUiService.Cleanup();
 

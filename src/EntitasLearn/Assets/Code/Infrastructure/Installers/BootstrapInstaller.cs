@@ -35,6 +35,8 @@ using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Progress.Provider;
+using RSG;
+using UnityEngine;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -176,7 +178,13 @@ namespace Code.Infrastructure.Installers
 
         void IInitializable.Initialize()
         {
+            Promise.UnhandledException += LogPromiseException;
             Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
+        }
+
+        private void LogPromiseException(object sender, ExceptionEventArgs e)
+        {
+            Debug.LogError(e);
         }
     }
 }
