@@ -36,8 +36,8 @@ namespace Code.Infrastructure.States.GameStates
             _battleFeature.ClearReactiveSystems();
 
             DestructEntities();
-            _battleFeature.Cleanup();
 
+            _battleFeature.Cleanup();
             _battleFeature.TearDown();
             _battleFeature = null;
         }

@@ -20,7 +20,7 @@ namespace Assets.Code.Gameplay.Features.Hero.Factory
         {
             var baseStats = InitStats.EmptyStatDictionary()
                 .With(x => x[Stats.Speed] = 2f)
-                .With(x => x[Stats.MaxHp] = 100f);
+                .With(x => x[Stats.MaxHp] = 5f);
 
 
             return CreateEntity.Empty()

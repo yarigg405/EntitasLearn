@@ -153,6 +153,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
         }
 
         private void BindInfrastructureServices()
@@ -184,7 +185,7 @@ namespace Code.Infrastructure.Installers
 
         private void LogPromiseException(object sender, ExceptionEventArgs e)
         {
-            Debug.LogError(e);
+            Debug.LogError(e.Exception);
         }
     }
 }
